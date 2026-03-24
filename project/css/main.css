@@ -1,0 +1,131 @@
+@font-face {
+    font-family: retimoa;
+    src: url(../fonts/retimoa/Retimoa.otf);
+}
+
+@font-face {
+    font-family: retimoa-straight;
+    src: url(../fonts/retimoa/Retimoa\ Straight.otf);
+}
+
+
+:root {
+    --base: #311f63;
+    --highlight: #9933cc;
+    --white: #ffffff;
+    --black: #000000;
+    --gray: #252525;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: retimoa, retimoa-straight, sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--black);
+    background-image: url(../images/background.jpg);
+    background-size: cover;
+    min-height: 100vh;
+    position: relative;
+}
+
+nav {
+    width: 100%;
+    background-color: var(--gray);
+}
+
+#nav-btn-box {
+    padding: .8em 1.5em;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* same level as nav-account-box */
+.nav-left {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    column-gap: 2em;
+}
+
+.nav-btn {
+    font-size: 2em;
+    text-decoration: none;
+    color: white;
+    transition: all .5s ease;
+}
+
+.nav-btn:hover {
+    color: var(--highlight);
+    text-decoration: underline;
+}
+
+.nav-account-box {
+    
+}
+
+/* Generated from figma */
+.header-auth {
+    width: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    text-align: left;
+    font-size: 16px;
+    color: #1e1e1e;
+}
+
+.button {
+    flex: 1;
+    border-radius: 8px;
+    background-color: #e3e3e3;
+    border: 1px solid #767676;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+}
+
+.button2 {
+    position: relative;
+    /* line-height: 100%; */
+    font-family: retimoa-straight;
+    font-weight: 100;
+}
+
+.button3 {
+    flex: 1;
+    border-radius: 8px;
+    background-color: #2c2c2c;
+    border: 1px solid #2c2c2c;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    color: #f5f5f5;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100%;
+}
+
+.page-headline {
+    position: absolute;
+    bottom: 3em;
+    left: 2em;
+    color: white;
+    font-size: 3em;
+    width: 20em;
+}
