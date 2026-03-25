@@ -1,0 +1,18 @@
+body {
+    background-image: url(../images/background.jpg);
+    background-size: cover;
+}
+
+main {
+    min-height: 100vh;
+    background-color: var(--black50);
+}
+
+.page-headline {
+    position: absolute;
+    bottom: 3em;
+    left: 2em;
+    color: white;
+    font-size: 3em;
+    width: 20em;
+}
