@@ -17,9 +17,10 @@ function initPage() {
                 ${initNav()}
             </nav>
 
-            <div class="page-headline">
-                <h2>Create your soundboard</h2>
+            <div>
+                <h2>Upload your sounds</h2>
             </div>
+
         </main>
     `;
 

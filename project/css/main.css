@@ -8,6 +8,11 @@
     src: url(../fonts/retimoa/Retimoa\ Straight.otf);
 }
 
+@font-face {
+    font-family: inter-18;
+    src: url(../fonts/Inter/static/Inter_18pt-Regular.ttf);
+}
+
 
 :root {
     --base: #311f63;
@@ -109,6 +114,6 @@ nav {
 .button-text {
     position: relative;
     /* line-height: 100%; */
-    font-family: retimoa-straight;
+    font-family: inter-18, retimoa-straight;
     font-weight: 100;
 }
