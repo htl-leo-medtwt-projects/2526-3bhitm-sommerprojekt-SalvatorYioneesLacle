@@ -18,6 +18,6 @@ Auf einer weiteren Seite soll es möglich sein, Sounds aufzunehmen/hochzuladen, 
 
 **Datenbank:**
 - Tabelle mit Usern
-- Tabelle mit abspielbaren Sounds
+- Tabelle mit Sounds
 - Tabelle mit gespeicherten Aufnahmen (Link zur Festplatte)
 - Tabelle mit verschiedenen Soundboards/Geräten

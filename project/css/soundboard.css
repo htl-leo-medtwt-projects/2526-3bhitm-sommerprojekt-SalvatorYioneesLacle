@@ -8,17 +8,18 @@
 }
 
 .soundboard {
-    width: 80em;
+    width: 70em;
     position: relative;
     overflow: hidden;
     display: flex;
     justify-content: space-around;
     align-items: center;
     flex-wrap: wrap;
+    gap: .4em;
 }
 
 .buttons-icon {
-    width: 6em;
+    width: 6.5em;
     overflow: hidden;
     transition: .2s cubic-bezier(0.86, 1.1, 0.07, 1) all;
 }
