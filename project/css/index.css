@@ -12,7 +12,7 @@ main {
     position: absolute;
     bottom: 3em;
     left: 2em;
-    color: white;
+    color: var(--white);
     font-size: 3em;
     width: 20em;
 }

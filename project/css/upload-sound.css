@@ -37,7 +37,7 @@
     height: 25em;
     position: relative;
     border-radius: .8em;
-    background-color: #252525;
+    background-color: var(--gray);
     border: 2px solid var(--white);
 }
 
@@ -45,8 +45,8 @@
     width: 7.5em;
     padding: .8em;
     border-radius: .5em;
-    background-color: #e3e3e3;
-    border: 1px solid #767676;
+    background-color: var(--btnBackgrLight);
+    border: 1px solid var(--btnBorderLight);
     display: flex;
     align-items: center;
     justify-content: center;
