@@ -28,6 +28,9 @@
     --btnBorderLight: #767676;
     --btnBackgrDark: #2c2c2c;
     --btnBorderDark: #2c2c2c;
+
+    /* navigation properties */
+    --navHeight: 4.5em;
 }
 
 * {
@@ -43,13 +46,21 @@ body {
     position: relative;
 }
 
+main {
+    min-height: 100vh;
+}
+
 nav {
     width: 100%;
+    height: var(--navHeight);
     background-color: var(--gray);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #nav-btn-box {
-    padding: .8em 1.5em;
+    padding: 0 1.5em;
     width: 100%;
     display: flex;
     justify-content: space-between;

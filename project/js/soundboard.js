@@ -6,9 +6,10 @@ function initPage() {
             <nav>
                 ${initNav()}
             </nav>
-
-            <div class="page-headline">
-                <h2>Create your soundboard</h2>
+            <div id="wrapper">
+                <div class="soundboard">
+                    ${generateButtons()}
+                </div>
             </div>
         </main>
     `;
@@ -23,11 +24,11 @@ function initNav() {
     str += `
         <div id="nav-btn-box">
             <div class="nav-left">
-                <a href="./pages/upload-sound.html" class="nav-btn">
-                    <img src="./images/upload.svg" alt="upload button">
+                <a href="../index.html" class="nav-btn">
+                    <img src="../images/home.svg" alt="home button">
                 </a>
-                <a href="./pages/soundboard.html" class="nav-btn">
-                    <img src="./images/soundboard.svg" alt="soundboard button">
+                <a href="./upload-sound.html" class="nav-btn">
+                    <img src="../images/upload.svg" alt="upload button">
                 </a>
                 <a href="" class="nav-btn">
                     C
@@ -47,5 +48,16 @@ function initNav() {
         </div>
     `;
 
+    return str;
+}
+
+// move to php
+function generateButtons() {
+    let str = "";
+
+    for (let i = 0; i < 35; i++) {
+        str += `<img class="buttons-icon" src="../images/Soundboard_button_alpha Kopie.svg" alt="soundboard button ${i}">`;
+    }
+    
     return str;
 }

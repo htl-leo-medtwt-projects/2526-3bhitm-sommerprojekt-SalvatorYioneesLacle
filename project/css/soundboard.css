@@ -1,0 +1,27 @@
+
+#wrapper {
+    width: 100%;
+    height: calc(100vh - var(--navHeight));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.soundboard {
+    width: 80em;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.buttons-icon {
+    width: 6em;
+    overflow: hidden;
+}
+
+.buttons-icon:hover {
+    background-color: green;
+}

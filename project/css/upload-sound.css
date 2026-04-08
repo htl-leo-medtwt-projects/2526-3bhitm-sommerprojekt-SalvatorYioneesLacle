@@ -39,6 +39,7 @@
     border-radius: .8em;
     background-color: var(--gray);
     border: 2px solid var(--white);
+    color: var(--white);
 }
 
 .button {

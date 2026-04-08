@@ -1,13 +1,3 @@
-// Generated from figma
-function account() {
-    let headerAuthContainer = document.getElementById("headerAuthContainer");
-    if (headerAuthContainer) {
-        headerAuthContainer.addEventListener("click", function (e) {
-            // Add your code here
-        });
-    }
-}
-
 function initPage() {
     let str = '';
 
@@ -24,7 +14,9 @@ function initPage() {
                 <div class="upload-your-sounds">Upload your sounds</div>
                 <div class="upload-box">
                     <div class="upload-box-child">
-                    
+                        <div>
+                            
+                        </div>
                     </div>
                     <div class="button">
                         <img class="upload-icon" src="../images/upload_black.svg" alt="upload-image">
@@ -47,10 +39,10 @@ function initNav() {
         <div id="nav-btn-box">
             <div class="nav-left">
                 <a href="../index.html" class="nav-btn">
-                    <img src="../images/home.svg" alt="home image">
+                    <img src="../images/home.svg" alt="home button">
                 </a>
-                <a href="" class="nav-btn">
-                    B
+                <a href="./soundboard.html" class="nav-btn">
+                    <img src="../images/soundboard.svg" alt="soundboard button">
                 </a>
                 <a href="" class="nav-btn">
                     C
