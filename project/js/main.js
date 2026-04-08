@@ -24,10 +24,10 @@ function initNav() {
         <div id="nav-btn-box">
             <div class="nav-left">
                 <a href="./pages/upload-sound.html" class="nav-btn">
-                    <img src="./images/upload.svg" alt="upload button">
+                    <img src="./images/icons/light/upload.svg" alt="upload button">
                 </a>
                 <a href="./pages/soundboard.html" class="nav-btn">
-                    <img src="./images/soundboard.svg" alt="soundboard button">
+                    <img src="./images/icons/light/soundboard.svg" alt="soundboard button">
                 </a>
                 <a href="" class="nav-btn">
                     C

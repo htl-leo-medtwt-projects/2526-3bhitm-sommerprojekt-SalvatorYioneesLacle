@@ -20,6 +20,7 @@
 .buttons-icon {
     width: 6em;
     overflow: hidden;
+    transition: .2s cubic-bezier(0.86, 1.1, 0.07, 1) all;
 }
 
 .buttons-icon:hover {

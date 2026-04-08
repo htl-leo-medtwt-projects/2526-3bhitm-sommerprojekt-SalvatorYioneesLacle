@@ -19,7 +19,7 @@ function initPage() {
                         </div>
                     </div>
                     <div class="button">
-                        <img class="upload-icon" src="../images/upload_black.svg" alt="upload-image">
+                        <img class="upload-icon" src="../images/icons/dark/upload.svg" alt="upload-image">
                         <div class="button-txt">Upload</div>
                     </div>
                 </div>
@@ -39,10 +39,10 @@ function initNav() {
         <div id="nav-btn-box">
             <div class="nav-left">
                 <a href="../index.html" class="nav-btn">
-                    <img src="../images/home.svg" alt="home button">
+                    <img src="../images/icons/light/home.svg" alt="home button">
                 </a>
                 <a href="./soundboard.html" class="nav-btn">
-                    <img src="../images/soundboard.svg" alt="soundboard button">
+                    <img src="../images/icons/light/soundboard.svg" alt="soundboard button">
                 </a>
                 <a href="" class="nav-btn">
                     C

@@ -6,9 +6,13 @@ function initPage() {
             <nav>
                 ${initNav()}
             </nav>
-            <div id="wrapper">
-                <div class="soundboard">
-                    ${generateButtons()}
+            <div class="box">
+                <div class="user">
+                    <img class="icon" src="../images/icons/light/user.svg" alt="user icon">
+                </div>
+                <div class="text-box">
+                    <div class="welcome-user">Welcome, User</div>
+                    <div class="last-login">Last Login: 15.03.2026, 15:03</div>
                 </div>
             </div>
         </main>
@@ -34,30 +38,8 @@ function initNav() {
                     C
                 </a>
             </div>
-            <div class="nav-account-box">
-                <!-- Generated from figma -->
-                <div class="header-auth" id="headerAuthContainer">
-                    <div class="button-signin">
-                        <div class="button-text">Sign in</div>
-                    </div>
-                    <div class="button-register">
-                        <div class="button-text">Register</div>
-                    </div>
-                </div>
-            </div>
         </div>
     `;
 
-    return str;
-}
-
-// move to php
-function generateButtons() {
-    let str = "";
-
-    for (let i = 0; i < 35; i++) {
-        str += `<img class="buttons-icon" src="../images/soundboard/soundboard_button_alpha Kopie.svg" alt="soundboard button ${i}">`;
-    }
-    
     return str;
 }
