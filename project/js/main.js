@@ -33,8 +33,8 @@ function initNav() {
     str += `
         <div id="nav-btn-box">
             <div class="nav-left">
-                <a href="" class="nav-btn">
-                    A
+                <a href="./pages/upload-sound.html" class="nav-btn">
+                    <img src="./images/upload.svg" alt="upload image">
                 </a>
                 <a href="" class="nav-btn">
                     B

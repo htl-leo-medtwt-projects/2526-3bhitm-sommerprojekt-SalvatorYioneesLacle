@@ -20,6 +20,18 @@ function initPage() {
             <div>
                 <h2>Upload your sounds</h2>
             </div>
+            <div class="box">
+                <div class="upload-your-sounds">Upload your sounds</div>
+                <div class="upload-box">
+                    <div class="upload-box-child">
+                    
+                    </div>
+                    <div class="button">
+                        <img class="upload-icon" src="../images/upload_black.svg" alt="upload-image">
+                        <div class="button-txt">Upload</div>
+                    </div>
+                </div>
+            </div>
 
         </main>
     `;
@@ -34,8 +46,8 @@ function initNav() {
     str += `
         <div id="nav-btn-box">
             <div class="nav-left">
-                <a href="" class="nav-btn">
-                    A
+                <a href="../index.html" class="nav-btn">
+                    <img src="../images/home.svg" alt="home image">
                 </a>
                 <a href="" class="nav-btn">
                     B
