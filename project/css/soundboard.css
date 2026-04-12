@@ -25,5 +25,5 @@
 }
 
 .buttons-icon:hover {
-    background-color: green;
+    background-color: var(--highlight);
 }

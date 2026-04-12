@@ -1,0 +1,97 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="7C2097E6-2EDD-90C9-B79B-2786FC3B326D" name="Sounds">
+<createdBy>salva</createdBy>
+<createdTime>2026-04-08 07:30:22 UTC</createdTime>
+<ownerDesignName>Soundboard</ownerDesignName>
+<engineerTo>
+<item key="1AC14048-95B0-ABBC-0415-C8F02ACD9D7A" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="id" id="1B3127A2-DAA9-7EFB-AD6B-FE743990814F">
+<createdBy>salva</createdBy>
+<createdTime>2026-04-08 07:35:47 UTC</createdTime>
+<ownerDesignName>Soundboard</ownerDesignName>
+<engineerTo>
+<item key="1AC14048-95B0-ABBC-0415-C8F02ACD9D7A" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="name" id="67B24BFC-020C-2C01-8193-4E5BB2987845">
+<createdBy>salva</createdBy>
+<createdTime>2026-04-08 07:30:27 UTC</createdTime>
+<ownerDesignName>Soundboard</ownerDesignName>
+<engineerTo>
+<item key="1AC14048-95B0-ABBC-0415-C8F02ACD9D7A" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="short_name" id="9E04524B-6B50-B567-9185-17F36EA0EF1C">
+<createdBy>salva</createdBy>
+<createdTime>2026-04-08 07:30:54 UTC</createdTime>
+<ownerDesignName>Soundboard</ownerDesignName>
+<engineerTo>
+<item key="1AC14048-95B0-ABBC-0415-C8F02ACD9D7A" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>5</dataTypeSize>
+<ownDataTypeParameters>5,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="path" id="E28A98DD-2061-11DC-DAD5-77B25781A65D">
+<createdBy>salva</createdBy>
+<createdTime>2026-04-08 07:31:55 UTC</createdTime>
+<ownerDesignName>Soundboard</ownerDesignName>
+<engineerTo>
+<item key="1AC14048-95B0-ABBC-0415-C8F02ACD9D7A" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT005</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="id1" id="B59F5DA7-4959-7B7B-5746-F4387554813D">
+<createdBy>salva</createdBy>
+<createdTime>2026-04-08 07:36:41 UTC</createdTime>
+<generatorID>B26BEADD-76A9-5C68-B57A-AA788643BDB8</generatorID>
+<ownerDesignName>Soundboard</ownerDesignName>
+<engineerTo>
+<item key="1AC14048-95B0-ABBC-0415-C8F02ACD9D7A" value="true"/>
+</engineerTo>
+<referedAttribute>A27CEE30-BA90-0C07-9DD0-C9383479B25E</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="A209C144-A0C7-04B6-37D8-6332DE4BF62F" name="Sounds PK">
+<createdBy>salva</createdBy>
+<createdTime>2026-04-08 07:35:54 UTC</createdTime>
+<ownerDesignName>Soundboard</ownerDesignName>
+<engineerTo>
+<item key="1AC14048-95B0-ABBC-0415-C8F02ACD9D7A" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>1B3127A2-DAA9-7EFB-AD6B-FE743990814F</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

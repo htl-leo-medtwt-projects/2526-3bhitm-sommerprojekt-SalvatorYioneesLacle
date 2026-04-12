@@ -1,0 +1,7 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<BusinessInfoDesign class="oracle.dbtools.crest.model.businessinfo.BusinessInfoDesign" name="Business Information" id="B9A2B05A-B7BF-D8E6-D109-5486315FB066">
+<createdBy>salva</createdBy>
+<createdTime>2026-04-08 07:23:18 UTC</createdTime>
+<ownerDesignName>Soundboard</ownerDesignName>
+<shouldBeOpen>false</shouldBeOpen>
+</BusinessInfoDesign>

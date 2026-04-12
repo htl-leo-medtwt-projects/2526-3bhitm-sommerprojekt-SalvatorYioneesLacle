@@ -86,13 +86,14 @@ nav {
     transition: all .2s ease;
 }
 
-.nav-btn:hover {
-    color: var(--highlight);
-    filter: invert(1);
-}
-
 .nav-btn img {
     width: 1em;
+    transition: all .2s ease;
+}
+
+.nav-btn:hover,
+.nav-btn:hover img {
+    filter: invert(0.5);
 }
 
 .nav-account-box {

@@ -1,0 +1,98 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="4DBAE62A-B473-2DF7-FF8F-B6A229125415" name="Sounds">
+<createdBy>salva</createdBy>
+<createdTime>2026-04-08 07:36:54 UTC</createdTime>
+<generatorID>7C2097E6-2EDD-90C9-B79B-2786FC3B326D</generatorID>
+<ownerDesignName>Soundboard</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id" id="03B37B4D-5112-D5D4-3930-92A9A1A450BE">
+<createdBy>salva</createdBy>
+<createdTime>2026-04-08 07:36:54 UTC</createdTime>
+<generatorID>1B3127A2-DAA9-7EFB-AD6B-FE743990814F</generatorID>
+<ownerDesignName>Soundboard</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="name" id="83A3D049-8DF4-E2D6-38A8-9CE6F659E5B4">
+<createdBy>salva</createdBy>
+<createdTime>2026-04-08 07:36:54 UTC</createdTime>
+<generatorID>67B24BFC-020C-2C01-8193-4E5BB2987845</generatorID>
+<ownerDesignName>Soundboard</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="short_name" id="58C383FC-4662-EF4F-1F42-E9433737A707">
+<createdBy>salva</createdBy>
+<createdTime>2026-04-08 07:36:54 UTC</createdTime>
+<generatorID>9E04524B-6B50-B567-9185-17F36EA0EF1C</generatorID>
+<ownerDesignName>Soundboard</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>5</dataTypeSize>
+<ownDataTypeParameters>5,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="path" id="F7D042CF-6521-F1B7-BFEA-4904D62DFAB4">
+<createdBy>salva</createdBy>
+<createdTime>2026-04-08 07:36:54 UTC</createdTime>
+<generatorID>E28A98DD-2061-11DC-DAD5-77B25781A65D</generatorID>
+<ownerDesignName>Soundboard</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT005</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="id1" id="CFE98A19-DA9E-88B4-F4EC-9A6E55EF80A1">
+<createdBy>salva</createdBy>
+<createdTime>2026-04-08 07:36:54 UTC</createdTime>
+<generatorID>B59F5DA7-4959-7B7B-5746-F4387554813D</generatorID>
+<ownerDesignName>Soundboard</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="6698DA63-F87E-9E54-6C07-C5ED84AF9FA6" referredColumn="FFC086DE-53EF-9B77-B085-BE58EA5272D3"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="0EA6216C-A378-243F-A3B2-32BDD7AA0B68" name="Sounds_PK">
+<createdBy>salva</createdBy>
+<createdTime>2026-04-08 07:36:54 UTC</createdTime>
+<generatorID>A209C144-A0C7-04B6-37D8-6332DE4BF62F</generatorID>
+<ownerDesignName>Soundboard</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="03B37B4D-5112-D5D4-3930-92A9A1A450BE"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="AF68BE57-F4D9-957E-6928-F06A70A52103" name="Sounds_Users_FK">
+<createdBy>salva</createdBy>
+<createdTime>2026-04-08 07:36:54 UTC</createdTime>
+<generatorID>B26BEADD-76A9-5C68-B57A-AA788643BDB8</generatorID>
+<ownerDesignName>Soundboard</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="CFE98A19-DA9E-88B4-F4EC-9A6E55EF80A1"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
