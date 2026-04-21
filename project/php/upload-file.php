@@ -17,7 +17,7 @@ if (file_exists($target_file)) {
 
 $uploadOk = 1;
 
-$imageFileType = pathinfo($target_file, PATHINFO_EXTENSION);
+$fileType = pathinfo($target_file, PATHINFO_EXTENSION);
 if (isset($_POST['submit'])) {
     $check = getimagesize($_FILES['fileToUpload']['tmp_name']);
     if ($check !== false) {
@@ -33,8 +33,8 @@ if ($_FILES["fileUpload"]["size"] > 500000) {
 }
 
 // Allow certain file formats
-if ($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif") {
-    echo "Sorry, only JPG, JPEG, PNG & GIF  files are allowed.";
+if ($fileType != "wav" && $fileType != "mp3") {
+    echo "Sorry, only MP3 and WAV files are allowed.";
     $uploadOk = 0;
 }
 

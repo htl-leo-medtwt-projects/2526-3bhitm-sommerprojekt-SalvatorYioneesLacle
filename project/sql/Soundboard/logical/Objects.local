@@ -1,6 +1,6 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
 <oracle.dbtools.crest.model.design.logical.LogicalDesign>
-   <object objectType="Entity" objectID="7C2097E6-2EDD-90C9-B79B-2786FC3B326D" name="Sounds" seqName="seg_0" propertyClassName="oracle.dbtools.crest.model.design.logical.Entity" propertyParentId="89B6BE57-8060-D0CA-A134-1B0098C9DB56" propertySourceId="" propertyTargetId=""/>
    <object objectType="Entity" objectID="60D7AB7C-AD47-0D12-1806-D2F661491060" name="Users" seqName="seg_0" propertyClassName="oracle.dbtools.crest.model.design.logical.Entity" propertyParentId="89B6BE57-8060-D0CA-A134-1B0098C9DB56" propertySourceId="" propertyTargetId=""/>
+   <object objectType="Entity" objectID="7C2097E6-2EDD-90C9-B79B-2786FC3B326D" name="Sounds" seqName="seg_0" propertyClassName="oracle.dbtools.crest.model.design.logical.Entity" propertyParentId="89B6BE57-8060-D0CA-A134-1B0098C9DB56" propertySourceId="" propertyTargetId=""/>
    <object objectType="Relation" objectID="B26BEADD-76A9-5C68-B57A-AA788643BDB8" name="Relation_1" seqName="seg_0" propertyClassName="oracle.dbtools.crest.model.design.logical.Relation" propertyParentId="89B6BE57-8060-D0CA-A134-1B0098C9DB56" propertySourceId="60D7AB7C-AD47-0D12-1806-D2F661491060" propertyTargetId="7C2097E6-2EDD-90C9-B79B-2786FC3B326D"/>
 </oracle.dbtools.crest.model.design.logical.LogicalDesign>

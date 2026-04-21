@@ -15,11 +15,10 @@ function initPage() {
                 <div class="upload-box">
                     <div class="upload-box-child">
                         <div>
-                            <h2>Dateiupload</h2>
                             <form action="imageupload.php" method="post" enctype="multipart/form-data">
-                                Select audio file to upload:
+                                <p>Select audio file to upload</p>
                                 <input type="file" name="fileToUpload" id="fileToUpload">
-                                <input type="submit" value="Upload image" name="submit">
+                                <input class="button button-txt" type="submit" value="Upload" name="submit">
                             </form>
                         </div>
                     </div>
@@ -29,7 +28,6 @@ function initPage() {
                     </div>
                 </div>
             </div>
-
         </main>
     `;
 
