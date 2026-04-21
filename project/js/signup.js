@@ -8,14 +8,24 @@ function initPage() {
             </nav>
 
             <div class="box">
-                <div class="upload-your-sounds">Upload your sounds</div>
+                <div class="upload-your-sounds">Create an account</div>
                 <div class="upload-box">
                     <div class="upload-box-child">
                         <div>
-                            <form action=""../php/upload-file.php"" method="post" enctype="multipart/form-data">
-                                <p>Select audio file to upload</p>
-                                <input type="file" name="fileToUpload" id="fileToUpload">
-                                <input class="button button-txt" type="submit" value="Upload" name="submit">
+                            <form action="../php/createUser.php" method="post">
+                                <div>
+                                    <input type="text" name="username">
+                                    <p>Username</p>
+                                </div>
+                                <div>
+                                    <input type="password" name="password-1">
+                                    <p>Password</p>
+                                </div>
+                                <div>
+                                    <input type="password" name="password-2">
+                                    <p>Retype password</p>
+                                </div>
+                                <input class="button button-txt" type="submit" value="Continue" name="submit">
                             </form>
                         </div>
                     </div>
@@ -47,17 +57,6 @@ function initNav() {
                 <a href="" class="nav-btn">
                     C
                 </a>
-            </div>
-            <div class="nav-account-box">
-                <!-- Generated from figma -->
-                <div class="header-auth" id="headerAuthContainer">
-                    <div class="button-signin">
-                        <div class="button-text">Sign in</div>
-                    </div>
-                    <div class="button-register">
-                        <div class="button-text">Register</div>
-                    </div>
-                </div>
             </div>
         </div>
     `;

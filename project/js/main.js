@@ -36,12 +36,12 @@ function initNav() {
             <div class="nav-account-box">
                 <!-- Generated from figma -->
                 <div class="header-auth" id="headerAuthContainer">
-                    <div class="button-signin">
+                    <a class="button-signin" href="./pages/signup.html">
                         <div class="button-text">Sign in</div>
-                    </div>
-                    <div class="button-register">
+                    </a>
+                    <a class="button-register" href="./pages/login.html">
                         <div class="button-text">Register</div>
-                    </div>
+                    </a>
                 </div>
             </div>
         </div>

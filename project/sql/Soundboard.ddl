@@ -1,5 +1,5 @@
 -- Generiert von Oracle SQL Developer Data Modeler 24.3.1.347.1153
---   am/um:        2026-04-08 09:37:17 MESZ
+--   am/um:        2026-04-21 11:30:49 MESZ
 --   Site:      Oracle Database 11g
 --   Typ:      Oracle Database 11g
 
@@ -10,25 +10,29 @@
 -- predefined type, no DDL - XMLTYPE
 
 CREATE TABLE sounds (
-    id         NUMBER NOT NULL,
-    name       VARCHAR2(100) NOT NULL,
-    short_name VARCHAR2(5) NOT NULL,
-    path       BLOB NOT NULL,
-    id1        NUMBER NOT NULL
+    id         TINYINT NOT NULL,
+    name       VARCHAR(100) NOT NULL,
+    short_name VARCHAR(5) NOT NULL,
+    path       VARCHAR(200) NOT NULL,
+    user_id    TINYINT NOT NULL
 );
 
 ALTER TABLE sounds ADD CONSTRAINT sounds_pk PRIMARY KEY ( id );
 
 CREATE TABLE users (
-    id         NUMBER NOT NULL,
-    name       VARCHAR2(50) NOT NULL,
-    last_login DATE NOT NULL
+    id              TINYINT NOT NULL,
+    username        VARCHAR(50) NOT NULL,
+    profile_picture VARCHAR(200) NOT NULL,
+    password_hash   VARCHAR(64) NOT NULL,
+    signup_date     DATE NOT NULL,
+    last_login      DATE NOT NULL,
+    user_deleted    TINYINT NOT NULL
 );
 
 ALTER TABLE users ADD CONSTRAINT users_pk PRIMARY KEY ( id );
 
 ALTER TABLE sounds
-    ADD CONSTRAINT sounds_users_fk FOREIGN KEY ( id1 )
+    ADD CONSTRAINT sounds_users_fk FOREIGN KEY ( user_id )
         REFERENCES users ( id );
 
 

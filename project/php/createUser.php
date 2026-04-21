@@ -37,10 +37,10 @@ if (isset($_POST["submit"])) {
         $_SESSION["user"] = $user;
         $_id = $conn->real_escape_string($user["id"]);
 
-        $settingsStatement = "INSERT INTO user_settings (user_id)
-                        VALUES ('$_id');";
+        $settingsStatement = "INSERT INTO user_settings (user_id) VALUES ('$_id');";
+        
     } else {
-       include("../pages/account.html");
+        include("../pages/account.html");
     }
 
     if ($_res = $conn->query($insertStatement)) {

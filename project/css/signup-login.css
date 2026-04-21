@@ -1,0 +1,84 @@
+h2 {
+    color: white;
+}
+
+.box {
+    width: 100%;
+    padding: 8em 0;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2em;
+    color: var(--white);
+}
+
+.upload-your-sounds {
+    font-size: 2.5em;
+    position: relative;
+    line-height: 100%;
+}
+
+.button-txt {
+    font-family: inter-18;
+}
+
+.upload-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2em;
+    color: var(--black);
+}
+
+.upload-box-child {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 50em;
+    height: 25em;
+    position: relative;
+    background-color: var(--gray);
+    border: 2px solid var(--white);
+    color: var(--white);
+}
+
+.upload-box-child>div {
+    height: 100%;
+}
+
+.upload-box-child form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    height: 100%;
+}
+
+.button {
+    width: 7.5em;
+    padding: .8em;
+    border-radius: .5em;
+    background-color: var(--btnBackgrLight);
+    border: 1px solid var(--btnBorderLight);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .5em;
+    cursor: pointer;
+    user-select: none;
+}
+
+.upload-icon {
+    width: 1.2em;
+    position: relative;
+}
+
+input[type=file] {
+    background-color: var(--white);
+    color: var(--black);
+    padding: .5em;
+}
