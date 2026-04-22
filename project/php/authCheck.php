@@ -8,7 +8,7 @@ if (
   $_SESSION["login"] !== 1 ||
   empty($_SESSION["user"])
 ) {
-  header("Location: ../index.html");
+  header("Location: ../pages/login.html");
   exit;
 }
 

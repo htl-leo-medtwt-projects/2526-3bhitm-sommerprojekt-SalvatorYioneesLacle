@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 require_once "database.php";
 
 if (isset($_POST["submit"])) {
@@ -7,7 +7,7 @@ if (isset($_POST["submit"])) {
     $_password = $_POST["password"];
 
     $stmt = $conn->prepare(
-        "SELECT * FROM users WHERE username = ?"
+        "SELECT * FROM users WHERE username = ? AND user_deleted = 0 LIMIT 1;"
     );
     $stmt->bind_param("s", $_username);
     $stmt->execute();
@@ -29,16 +29,16 @@ if (isset($_POST["submit"])) {
 
         } else {
             // Wrong password
-            include("../pages/account.html");
+            include("../pages/login.html");
         }
     } else {
         // User not found
-        include("../pages/account.html");
+        include("../pages/login.html");
     }
 }
 
 if (is_array($_SESSION) && isset($_SESSION["login"]) && $_SESSION["login"] == 1) {
-    header("Location: ../index.html");
+    header("Location: ../pages/account.php");
 }
 
 $conn->close();

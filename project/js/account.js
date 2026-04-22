@@ -11,7 +11,7 @@ function initPage() {
                     <img class="icon" src="../images/icons/light/user.svg" alt="user icon">
                 </div>
                 <div class="text-box">
-                    <div class="welcome-user">Welcome, User</div>
+                    <div class="welcome-user">Welcome, <?php echo $username; ?></div>
                     <div class="last-login">Last Login: 15.03.2026, 15:03</div>
                 </div>
             </div>
@@ -19,8 +19,9 @@ function initPage() {
     `;
 
     document.getElementsByTagName('body').item(0).innerHTML = str;
+
 }
-initPage();
+// initPage();
 
 function initNav() {
     let str = '';
@@ -41,5 +42,6 @@ function initNav() {
         </div>
     `;
 
-    return str;
+    document.getElementsByTagName('nav').item(0).innerHTML = str;
 }
+initNav();
