@@ -13,6 +13,49 @@ if (isset($_SESSION) && $_SESSION["user"] && $_SESSION["user"]["username"]) {
     $username = 'user';
 }
 
+function initPage() {
+    global $username;
+    $nav = initNav();
+
+    $str = "
+    <main>
+        <nav>
+            $nav
+        </nav>
+        <div class='box'>
+            <div class='user'>
+                <img class='icon' src='../images/icons/light/user.svg' alt='user icon'>
+            </div>
+            <div class='text-box'>
+                <div class='welcome-user'>Welcome, $username </div>
+                <div class='last-login'>Last Login: 15.03.2026, 15:03</div>
+            </div>
+        </div>
+    </main>
+    ";
+    return $str;
+}
+
+function initNav() {
+    $str = "
+        <div id='nav-btn-box'>
+            <div class='nav-left'>
+                <a href='../index.php' class='nav-btn'>
+                    <img src='../images/icons/light/home.svg' alt='home button'>
+                </a>
+                <a href='../pages/upload-sound.php' class='nav-btn'>
+                    <img src='../images/icons/light/upload.svg' alt='upload button'>
+                </a>
+                <a href='' class='nav-btn'>
+                    C
+                </a>
+            </div>
+        </div>
+    ";
+
+    return $str;
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -28,20 +71,7 @@ if (isset($_SESSION) && $_SESSION["user"] && $_SESSION["user"]["username"]) {
 </head>
 
 <body>
-    <main>
-        <nav>
-            
-        </nav>
-        <div class="box">
-            <div class="user">
-                <img class="icon" src="../images/icons/light/user.svg" alt="user icon">
-            </div>
-            <div class="text-box">
-                <div class="welcome-user">Welcome, <?php echo $username; ?></div>
-                <div class="last-login">Last Login: 15.03.2026, 15:03</div>
-            </div>
-        </div>
-    </main>
+    <?php echo initPage(); ?>
 </body>
 
 </html>

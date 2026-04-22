@@ -29,10 +29,10 @@ function initNav() {
     str += `
         <div id="nav-btn-box">
             <div class="nav-left">
-                <a href="../index.html" class="nav-btn">
+                <a href="../index.php" class="nav-btn">
                     <img src="../images/icons/light/home.svg" alt="home button">
                 </a>
-                <a href="./upload-sound.html" class="nav-btn">
+                <a href="./upload-sound.php" class="nav-btn">
                     <img src="../images/icons/light/upload.svg" alt="upload button">
                 </a>
                 <a href="" class="nav-btn">
@@ -44,4 +44,4 @@ function initNav() {
 
     document.getElementsByTagName('nav').item(0).innerHTML = str;
 }
-initNav();
+// initNav();

@@ -44,10 +44,10 @@ function initNav() {
     str += `
         <div id="nav-btn-box">
             <div class="nav-left">
-                <a href="../index.html" class="nav-btn">
+                <a href="../index.php" class="nav-btn">
                     <img src="../images/icons/light/home.svg" alt="home button">
                 </a>
-                <a href="./soundboard.html" class="nav-btn">
+                <a href="./soundboard.php" class="nav-btn">
                     <img src="../images/icons/light/soundboard.svg" alt="soundboard button">
                 </a>
                 <a href="" class="nav-btn">

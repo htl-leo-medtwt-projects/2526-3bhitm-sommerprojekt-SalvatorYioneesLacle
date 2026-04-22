@@ -12,7 +12,7 @@ function initPage() {
                 <div class="upload-box">
                     <div class="upload-box-child">
                         <div>
-                            <form action=""../php/upload-file.php"" method="post" enctype="multipart/form-data">
+                            <form action="../php/upload-file.php" method="post" enctype="multipart/form-data">
                                 <p>Select audio file to upload</p>
                                 <input type="file" name="fileToUpload" id="fileToUpload">
                                 <input class="button button-txt" type="submit" value="Upload" name="submit">
@@ -38,10 +38,10 @@ function initNav() {
     str += `
         <div id="nav-btn-box">
             <div class="nav-left">
-                <a href="../index.html" class="nav-btn">
+                <a href="../index.php" class="nav-btn">
                     <img src="../images/icons/light/home.svg" alt="home button">
                 </a>
-                <a href="./soundboard.html" class="nav-btn">
+                <a href="./soundboard.php" class="nav-btn">
                     <img src="../images/icons/light/soundboard.svg" alt="soundboard button">
                 </a>
                 <a href="" class="nav-btn">
