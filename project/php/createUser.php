@@ -1,6 +1,6 @@
 <?php
 if (session_status() === PHP_SESSION_NONE) {
-  session_start();
+    session_start();
 }
 require_once "database.php";
 
@@ -17,40 +17,49 @@ if (isset($_POST["submit"])) {
     $_passwordHash = password_hash($_password, PASSWORD_BCRYPT);
 
     // Check if user with same username exists
-    $searchStatement = $conn->prepare(
-        "SELECT id FROM users WHERE username = ?;"
+    $stmt = $conn->prepare(
+        "SELECT * FROM users WHERE username = ? AND user_deleted = 0 LIMIT 1;"
     );
+    $stmt->bind_param("s", $_username);
+    $stmt->execute();
 
-    $searchStatement->bind_param("s", $_username);
-    $searchStatement->execute();
-    $resUser = $searchStatement->get_result();
+    $res = $stmt->get_result();
 
-    if ($resUser->num_rows > 0) {
+    if ($res->num_rows > 0) {
         // User already exists
         include("../pages/signup.html");
-    }
-
-    $insertStatement = "INSERT INTO users (username, profile_picture, password_hash, signup_date, last_login, user_deleted)
+    } else {
+        $insertStatement = "INSERT INTO users (username, profile_picture, password_hash, signup_date, last_login, user_deleted)
                         VALUES ('$_username', './images/icons/light/Music.svg', '$_passwordHash',  NOW(), NOW(), 0);";
 
-    // To add user stuff to another table
-    // if ($resUser->num_rows === 1) {
-    //     $user = $resUser->fetch_assoc();
+        // Search for user to get user data
+        $stmt = $conn->prepare(
+            "SELECT * FROM users WHERE username = ? AND user_deleted = 0 LIMIT 1;"
+        );
+        $stmt->bind_param("s", $_username);
+        $stmt->execute();
+        $resUser = $stmt->get_result();
 
-    //     $_SESSION["user"] = $user;
-    //     // $_id = $conn->real_escape_string($user["id"]);
+        // To add user stuff to another table
+        if ($resUser->num_rows === 1) {
+            $user = $resUser->fetch_assoc();
 
-    //     // $settingsStatement = "INSERT INTO user_settings (user_id) VALUES ('$_id');";
-        
-    // } else {
-    //     include("../pages/account.php");
-    // }
+            $_SESSION["login"] = 1;
+            $_SESSION["user"] = $user;
+            // $_id = $conn->real_escape_string($user["id"]);
 
-    if ($_res = $conn->query($insertStatement)) {
-        include("../pages/account.php");
-    } else {
-        // Error message
-        include("../pages/signup.html");
+            // $settingsStatement = "INSERT INTO user_settings (user_id) VALUES ('$_id');";
+
+        } else {
+            include("../pages/account.php");
+        }
+
+        if ($_res = $conn->query($insertStatement)) {
+            include("../pages/account.php");
+        } else {
+            // Error message
+            include("../pages/signup.html");
+        }
     }
 } else {
     // Error message
