@@ -1,7 +1,10 @@
 <?php
-session_start();
+if (session_status() === PHP_SESSION_NONE) {
+  session_start();
+}
 // For login
 // require_once "../php/authCheck.php";
+
 require_once '../php/database.php';
 
 if (isset($_SESSION) && $_SESSION["user"] && $_SESSION["user"]["username"]) {

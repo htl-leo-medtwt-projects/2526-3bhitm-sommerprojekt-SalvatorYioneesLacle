@@ -1,5 +1,7 @@
 <?php
-session_start();
+if (session_status() === PHP_SESSION_NONE) {
+  session_start();
+}
 require_once "database.php";
 
 if (isset($_POST["submit"])) {
@@ -28,8 +30,8 @@ if (isset($_POST["submit"])) {
         include("../pages/signup.html");
     }
 
-    $insertStatement = "INSERT INTO users (username, password_hash, signup_date, last_login, user_deleted)
-                        VALUES ('$_username', '$_passwordHash',  NOW(), NOW(), 0);";
+    $insertStatement = "INSERT INTO users (username, profile_picture, password_hash, signup_date, last_login, user_deleted)
+                        VALUES ('$_username', './images/icons/light/Music.svg', '$_passwordHash',  NOW(), NOW(), 0);";
 
     // To add user stuff to another table
     // if ($resUser->num_rows === 1) {
