@@ -1,3 +1,60 @@
+<?php
+function initPage() {
+    $str = '';
+    $nav = initNav();
+
+    $str .= "
+        <main>
+            <nav>
+                $nav
+            </nav>
+
+            <div class='page-headline'>
+                <h2>Create your soundboard</h2>
+            </div>
+        </main>
+    ";
+
+    return $str;
+}
+
+function initNav() {
+    $str = '';
+
+    $str .= "
+        <div id='nav-btn-box'>
+            <div class='nav-left'>
+                <a href='./index.php' class='nav-btn'>
+                    <img src='../images/logo/Soundboard-Logo-Small.png' alt='home button'>
+                </a>
+                <a href='./pages/upload-sound.php' class='nav-btn'>
+                    <img src='./images/icons/light/upload.svg' alt='upload button'>
+                </a>
+                <a href='./pages/soundboard.php' class='nav-btn'>
+                    <img src='./images/icons/light/soundboard.svg' alt='soundboard button'>
+                </a>
+                <a href='' class='nav-btn'>
+                    C
+                </a>
+            </div>
+            <div class='nav-account-box'>
+                <!-- Generated from figma -->
+                <div class='header-auth' id='headerAuthContainer'>
+                    <a class='button-signin' href='./pages/signup.php'>
+                        <div class='button-text'>Sign in</div>
+                    </a>
+                    <a class='button-register' href='./pages/login.php'>
+                        <div class='button-text'>Register</div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    ";
+
+    return $str;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,7 +68,7 @@
 </head>
 
 <body>
-
+    <?php echo initPage(); ?>
 </body>
 
 </html>

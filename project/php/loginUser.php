@@ -31,11 +31,11 @@ if (isset($_POST["submit"])) {
 
         } else {
             // Wrong password
-            include("../pages/login.php");
+            header("Location: ../pages/login.php");
         }
     } else {
         // User not found
-        include("../pages/login.php");
+        header("Location: ../pages/login.php");
     }
 }
 

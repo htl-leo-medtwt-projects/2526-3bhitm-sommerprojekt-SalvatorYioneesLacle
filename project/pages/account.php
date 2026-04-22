@@ -2,9 +2,7 @@
 if (session_status() === PHP_SESSION_NONE) {
   session_start();
 }
-// For login
-// require_once "../php/authCheck.php";
-
+require_once "../php/authCheck.php";
 require_once '../php/database.php';
 
 if (isset($_SESSION) && $_SESSION["user"] && $_SESSION["user"]["username"]) {
@@ -16,22 +14,23 @@ if (isset($_SESSION) && $_SESSION["user"] && $_SESSION["user"]["username"]) {
 function initPage() {
     global $username;
     $nav = initNav();
+    $lastLogin = $_SESSION['user']['last_login'];
 
     $str = "
-    <main>
-        <nav>
-            $nav
-        </nav>
-        <div class='box'>
-            <div class='user'>
-                <img class='icon' src='../images/icons/light/user.svg' alt='user icon'>
+        <main>
+            <nav>
+                $nav
+            </nav>
+            <div class='box'>
+                <div class='user'>
+                    <img class='icon' src='../images/icons/light/user.svg' alt='user icon'>
+                </div>
+                <div class='text-box'>
+                    <div class='welcome-user'>Welcome, $username </div>
+                    <div class='last-login'>Last Login: $lastLogin</div>
+                </div>
             </div>
-            <div class='text-box'>
-                <div class='welcome-user'>Welcome, $username </div>
-                <div class='last-login'>Last Login: 15.03.2026, 15:03</div>
-            </div>
-        </div>
-    </main>
+        </main>
     ";
     return $str;
 }
@@ -41,10 +40,13 @@ function initNav() {
         <div id='nav-btn-box'>
             <div class='nav-left'>
                 <a href='../index.php' class='nav-btn'>
-                    <img src='../images/icons/light/home.svg' alt='home button'>
+                    <img src='../images/logo/Soundboard-Logo-Small.png' alt='home button'>
                 </a>
-                <a href='../pages/upload-sound.php' class='nav-btn'>
+                <a href='./upload-sound.php' class='nav-btn'>
                     <img src='../images/icons/light/upload.svg' alt='upload button'>
+                </a>
+                <a href='./soundboard.php' class='nav-btn'>
+                    <img src='../images/icons/light/soundboard.svg' alt='soundboard button'>
                 </a>
                 <a href='' class='nav-btn'>
                     C

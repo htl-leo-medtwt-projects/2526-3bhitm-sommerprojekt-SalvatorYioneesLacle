@@ -19,6 +19,7 @@
     --base: #311f63;
     --highlight: #9933cc;
     --white: #e3e3e3;
+    --white50: rgba(227, 227, 227, 0.2);
     --black: #000000;
     --black50: rgba(0, 0, 0, 0.5);
     --gray: #252525;
@@ -57,6 +58,10 @@ nav {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+nav a {
+    text-decoration: none;
 }
 
 #nav-btn-box {
@@ -103,7 +108,7 @@ nav {
 }
 
 .nav-account-box:hover {
-    background-color: var(--white);
+    background-color: var(--white50);
 }
 
 /* Generated from figma */
