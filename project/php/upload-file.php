@@ -8,7 +8,14 @@ if (!isset($_SESSION['user']) || !isset($_POST['submit']) || !isset($_FILES['fil
     exit;
 }
 
-$target_dir = "../uploads/";
+$username = $_SESSION['user']['username'];
+$userId;
+// https://stackoverflow.com/questions/2303372/create-a-folder-if-it-doesnt-already-exist
+if (!file_exists("../uploads/$username/")) {
+    mkdir("../uploads/$username/", 0777, true);
+}
+
+$target_dir = "../uploads/$username/";
 $target_file = $target_dir . basename($_FILES['fileToUpload']['name']);
 $uploadOk = 1;
 

@@ -1,10 +1,8 @@
 <?php
 
 function initPage() {
-    $str = '';
     $nav = initNav();
-
-    $str .= "
+    $str = "
         <main>
             <nav>
                 $nav
@@ -45,9 +43,7 @@ function initPage() {
 }
 
 function initNav() {
-    $str = '';
-
-    $str .= "
+    $str = "
         <div id='nav-btn-box'>
             <div class='nav-left'>
                 <a href='../index.php' class='nav-btn'>

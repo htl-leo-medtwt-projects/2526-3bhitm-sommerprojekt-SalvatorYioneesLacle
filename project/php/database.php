@@ -11,7 +11,11 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$stmt = "SELECT * FROM users";
-$users = $conn->query($stmt);
+$stmt = $conn->prepare(
+    "SELECT * FROM users where username = ?"
+);
+$stmt->bind_param("s", $username);
+$stmt->execute();
+$user = $stmt->get_result();
 
 // $conn->close();

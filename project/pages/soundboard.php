@@ -43,12 +43,12 @@ function initNav() {
             <div class='nav-account-box'>
                 <!-- Generated from figma -->
                 <div class='header-auth' id='headerAuthContainer'>
-                    <div class='button-signin'>
+                    <a class='button-signin' href='./signup.php'>
                         <div class='button-text'>Sign in</div>
-                    </div>
-                    <div class='button-register'>
+                    </a>
+                    <a class='button-register' href='./login.php'>
                         <div class='button-text'>Register</div>
-                    </div>
+                    </a>
                 </div>
             </div>
         </div>

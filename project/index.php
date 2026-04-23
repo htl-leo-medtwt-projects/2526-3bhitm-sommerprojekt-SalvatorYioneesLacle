@@ -1,9 +1,22 @@
 <?php
-function initPage() {
-    $str = '';
-    $nav = initNav();
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+require_once './php/database.php';
 
-    $str .= "
+if (isset($_SESSION) && $_SESSION["user"]) {
+    if ($_SESSION["user"]["username"]) {
+        $username = htmlspecialchars($_SESSION["user"]["username"], ENT_QUOTES, 'UTF-8');
+    }
+} else {
+    $username = 'user';
+}
+
+$pfpPath = "../uploads/$username/pfp.png";
+
+function initPage() {
+    $nav = initNav();
+    $str = "
         <main>
             <nav>
                 $nav
@@ -19,9 +32,8 @@ function initPage() {
 }
 
 function initNav() {
-    $str = '';
-
-    $str .= "
+    $initUserSignedIn = initUserSignedIn();
+    $str = "
         <div id='nav-btn-box'>
             <div class='nav-left'>
                 <a href='./index.php' class='nav-btn'>
@@ -38,21 +50,43 @@ function initNav() {
                 </a>
             </div>
             <div class='nav-account-box'>
-                <!-- Generated from figma -->
-                <div class='header-auth' id='headerAuthContainer'>
-                    <a class='button-signin' href='./pages/signup.php'>
-                        <div class='button-text'>Sign in</div>
-                    </a>
-                    <a class='button-register' href='./pages/login.php'>
-                        <div class='button-text'>Register</div>
-                    </a>
-                </div>
+                $initUserSignedIn
             </div>
         </div>
     ";
 
     return $str;
 }
+
+function initUserSignedIn() {
+    global $pfpPath;
+    $str = "";
+
+    if (isset($_SESSION) && $_SESSION["user"]) {
+        $str = "
+            <div class='user-acc-box'>
+                <a class='user-acc-pfp' href='./pages/account.php'>
+                    <img src='$pfpPath' alt='user profile picture'>
+                </a>
+            </div>
+        ";
+    } else {
+        $str = "
+            <!-- Generated from figma -->
+            <div class='header-auth' id='headerAuthContainer'>
+                <a class='button-signin' href='./pages/signup.php'>
+                    <div class='button-text'>Sign in</div>
+                </a>
+                <a class='button-register' href='./pages/login.php'>
+                    <div class='button-text'>Register</div>
+                </a>
+            </div>
+        ";
+    }
+
+    return $str;
+}
+
 ?>
 
 <!DOCTYPE html>
