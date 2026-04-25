@@ -1,4 +1,9 @@
 <?php
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+require_once '../php/database.php';
+require_once '../php/userDataVariables.php';
 
 function initPage() {
     $nav = initNav();
@@ -16,7 +21,7 @@ function initPage() {
                             <form action='../php/upload-file.php' method='post' enctype='multipart/form-data'>
                                 <p>Select audio file to upload</p>
                                 <div>
-                                    <input type='text' name='username'>
+                                    <input type='text' name='filename' id='filename'>
                                     <p>File name</p>
                                 </div>
                                 <div>

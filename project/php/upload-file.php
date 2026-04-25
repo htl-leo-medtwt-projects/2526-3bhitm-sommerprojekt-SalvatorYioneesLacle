@@ -3,24 +3,27 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 require_once 'database.php';
+require_once 'userDataVariables.php';
 
 if (!isset($_SESSION['user']) || !isset($_POST['submit']) || !isset($_FILES['fileToUpload'])) {
     exit;
 }
 
 $username = $_SESSION['user']['username'];
-$userId;
+$userId; // To assign owner user of sound file, on publish --> user_id = null
+
+$target_dir = "../uploads/$username/";
+$target_file = $target_dir . basename($_FILES['fileToUpload']['name']);
+
+$file_name = basename($_POST['filename']);
+$file_name_short = basename(substr($_POST['filename'], 0, 3));
+
+$uploadOk = 1;
+
 // https://stackoverflow.com/questions/2303372/create-a-folder-if-it-doesnt-already-exist
 if (!file_exists("../uploads/$username/")) {
     mkdir("../uploads/$username/", 0777, true);
 }
-
-$target_dir = "../uploads/$username/";
-$target_file = $target_dir . basename($_FILES['fileToUpload']['name']);
-$uploadOk = 1;
-
-$name = 'temp';
-$short_name = 'tmp';
 
 // Check if file already exists
 if (file_exists($target_file)) {
@@ -60,8 +63,10 @@ if ($uploadOk == 0) {
 } else {
     if (move_uploaded_file($_FILES['fileToUpload']['tmp_name'], $target_file)) {
         // echo "The file " . basename($_FILES['fileToUpload']['name']) . " has been uploaded.";
+        $target_file ="'$target_dir'/'$file_name'.'$fileType'";
         
-        $insertStatement = "INSERT INTO sounds (name, short_name, path) VALUES ('temp', 'tmp', '$target_file');";
+        rename("'$target_file'","'$target_dir'/'$file_name'.'$fileType'");
+        $insertStatement = "INSERT INTO sounds (name, short_name, path) VALUES ('$file_name', '$file_name_short', '$target_file');";
         if ($_res = $conn->query($insertStatement)) {
             // echo "<br>Image $target_file has been added to the datebase.";
         } else {

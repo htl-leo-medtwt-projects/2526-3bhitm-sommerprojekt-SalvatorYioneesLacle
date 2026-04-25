@@ -3,16 +3,7 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 require_once './php/database.php';
-
-if (isset($_SESSION) && $_SESSION["user"]) {
-    if ($_SESSION["user"]["username"]) {
-        $username = htmlspecialchars($_SESSION["user"]["username"], ENT_QUOTES, 'UTF-8');
-    }
-} else {
-    $username = 'user';
-}
-
-$pfpPath = "../uploads/$username/pfp.png";
+require_once './php/userDataVariables.php';
 
 function initPage() {
     $nav = initNav();

@@ -4,18 +4,10 @@ if (session_status() === PHP_SESSION_NONE) {
 }
 require_once '../php/database.php';
 require_once "../php/authCheck.php";
+require_once '../php/userDataVariables.php';
 
 function initPage() {
-    if (isset($_SESSION) && $_SESSION["user"]) {
-        if ($_SESSION["user"]["username"]) {
-            $username = htmlspecialchars($_SESSION["user"]["username"], ENT_QUOTES, 'UTF-8');
-        }
-        if ($_SESSION['user']['last_login']) {
-            $lastLogin = htmlspecialchars($_SESSION['user']['last_login'], ENT_QUOTES, 'UTF-8');
-        }
-    } else {
-        $username = 'user';
-    }
+    global $username, $lastLogin;
     $nav = initNav();
 
     $str = "
@@ -28,7 +20,7 @@ function initPage() {
                     <img class='icon' src='../images/icons/light/user.svg' alt='user icon'>
                 </div>
                 <div class='text-box'>
-                    <div class='welcome-user'>Welcome, $username </div>
+                    <div class='welcome-user'>Welcome, $username</div>
                     <div class='last-login'>Last Login: $lastLogin</div>
                 </div>
             </div>

@@ -1,4 +1,10 @@
 <?php
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+require_once '../php/database.php';
+require_once '../php/userDataVariables.php';
+
 
 function initPage() {
     $str = '';
