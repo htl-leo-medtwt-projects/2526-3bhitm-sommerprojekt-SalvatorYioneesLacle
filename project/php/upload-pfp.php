@@ -12,13 +12,10 @@ if (!isset($_SESSION['user']) || !isset($_POST['submit']) || !isset($_FILES['fil
 $errors;
 
 $username = $_SESSION['user']['username'];
-$userId =  $_SESSION['user']['id']; // To assign owner user of sound file, on publish --> user_id = null
+$userId = $_SESSION['user']['id'];
 
 $target_dir = "../uploads/$username/";
 $target_file = $target_dir . basename($_FILES['fileToUpload']['name']);
-
-$file_name = trim($_POST['filename']) != null || '' ? basename(trim($_POST['filename']) ) : basename(explode('.', $_FILES['fileToUpload']['name'])[0]); // Fix this --> 
-$file_name_short = substr($file_name, 0, 3);
 
 $uploadOk = 1;
 
@@ -31,7 +28,7 @@ if (!file_exists("../uploads/$username/")) {
 if (file_exists($target_file)) {
     // echo "Sorry, file already exists.";
     $uploadOk = 0;
-    header('Location: ../pages/upload-sound.php');
+    header('Location: ../pages/createUser.php');
 }
 
 $fileType = pathinfo($target_file, PATHINFO_EXTENSION);
@@ -40,51 +37,60 @@ if (isset($_POST['submit'])) {
     if ($check !== false) {
         // echo "File is an image - " . $check['mime'] . ".";
         $uploadOk = 1;
-        header('Location: ../pages/upload-sound.php');
+        header('Location: ../pages/createUser.php');
     }
 }
 
 // Allow certain file formats
-if ($fileType != "wav" && $fileType != "mp3") {
+if ($fileType != "jpg" && $fileType != "png" && $fileType != "jpeg" && $fileType != "gif") {
     // echo "Sorry, only MP3 and WAV files are allowed.";
     $uploadOk = 0;
-    header('Location: ../pages/upload-sound.php');
+    header('Location: ../pages/createUser.php');
 }
 
 // Check file size
 if ($_FILES["fileToUpload"]["size"] > 500000) {
     // echo "Sorry, your file is too large.";
     $uploadOk = 0;
-    header('Location: ../pages/upload-sound.php');
+    header('Location: ../pages/createUser.php');
 }
-
-// If var is set --> default
-// if (true) {
-//     $userId = null;
-// }
 
 // Check if $uploadOk is set to 0 by an error
 if ($uploadOk == 0) {
     // echo "Sorry, your file was not uploaded.";
-    header('Location: ../pages/upload-sound.php');
+    header('Location: ../pages/createUser.php');
 } else {
     // 1. Upload file
     if (move_uploaded_file($_FILES['fileToUpload']['tmp_name'], $target_file)) {
         // echo "The file " . basename($_FILES['fileToUpload']['name']) . " has been uploaded.";
 
         // 2. Rename file
-        rename($target_file, $target_dir . $file_name . ".$fileType");
-        $target_file = $target_dir . $file_name . ".$fileType";
+        $new_target_file = $target_dir . "pfp" . ".$fileType";
+        rename($target_file, $new_target_file);
+        $target_file = $new_target_file;
 
         // 3. Add to database
-        $insertStatement = "INSERT INTO sounds (name, short_name, path, user_id) VALUES ('$file_name', '$file_name_short', '$target_file', '$userId');";
-        if ($_res = $conn->query($insertStatement)) {
+        $insertStatement = $conn->prepare(
+            "UPDATE users SET profile_picture = '$target_file' WHERE id = ?;"
+        );
+        $insertStatement->bind_param("i", $userId);
+        $insertStatement->execute();
+        $res = $insertStatement->get_result();
+        // var_dump($res);
+
+        if ($res->num_rows === 1) {
+            // $user = $res->fetch_assoc();
+            // $_SESSION['user'] = $user;
+        }
+        if ($res->num_rows === 1) {
             // echo "<br>Image $target_file has been added to the datebase.";
+            header('Location: ../pages/account.php');
         } else {
             // echo "<br> NO insertion into database";
         }
-        header('Location: ../pages/upload-sound.php');
+        header('Location: ../pages/createUser.php');
     }
+    header('Location: ../pages/createUser.php');
 }
 
 ?>

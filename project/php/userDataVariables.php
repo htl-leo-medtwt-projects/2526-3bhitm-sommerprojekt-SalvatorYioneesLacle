@@ -11,8 +11,27 @@ if (isset($_SESSION) && $_SESSION["user"]) {
     if ($_SESSION['user']['last_login']) {
         $lastLogin = htmlspecialchars($_SESSION['user']['last_login'], ENT_QUOTES, 'UTF-8');
     }
+    if ($_SESSION['user']['signup_date']) {
+        $signupDate = htmlspecialchars($_SESSION['user']['signup_date'], ENT_QUOTES, 'UTF-8');
+    }
+    if ($_SESSION['user']['profile_picture']) {
+        $pfpPath = htmlspecialchars($_SESSION['user']['profile_picture'], ENT_QUOTES, 'UTF-8');
+    }
 } else {
     $username = 'user';
 }
 
-$pfpPath = "../uploads/$username/pfp.png";
+function showError($errorArray) {
+    $str = "<errors>";
+
+    for ($i=0; $i < count($errorArray); $i++) { 
+        $str .= "
+            <error>
+                <header>{$errorArray[$i]->header}</header>
+                <p>{$errorArray[$i]->message}</p>
+            </error>
+        ";
+    }
+    $str .= "</errors>";
+    return $str;
+}

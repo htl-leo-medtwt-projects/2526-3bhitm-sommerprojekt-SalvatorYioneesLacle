@@ -32,6 +32,11 @@
 
     /* navigation properties */
     --navHeight: 4.5em;
+
+    /* Error messages */
+    --errorBackgr: #f851491a;
+    --errorBorder: #f85149;
+    --errorColor: #b22b2b;
 }
 
 * {
@@ -158,3 +163,33 @@ nav a {
 }
 
 /* figma end */
+
+/* Error messages */
+errors {
+    width: 20em;
+    position: absolute;
+    bottom: 2em;
+    left: 1em;
+}
+
+error {
+    width: 22em;
+    height: 4.5em;
+    padding: .5em;
+    background-color: var(--errorBackgr);
+    color: var(--errorColor);
+    border: .1em solid var(--errorBorder);
+    border-radius: .5em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+error header {
+    font-weight: 900;
+    font-size: .9em;
+}
+
+error p {
+    font-size: .55em;
+}

@@ -17,7 +17,9 @@ function initPage() {
             </nav>
             <div class='box'>
                 <div class='user'>
-                    <img class='icon' src='../images/icons/light/user.svg' alt='user icon'>
+                    <a href='../pages/customiseUser.php'>
+                        <img class='icon' src='../images/icons/light/user.svg' alt='user icon'>
+                    </a>
                 </div>
                 <div class='text-box'>
                     <div class='welcome-user'>Welcome, $username</div>

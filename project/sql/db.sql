@@ -57,7 +57,8 @@ CREATE TABLE `sounds` (
   `name` varchar(100) NOT NULL,
   `short_name` varchar(5) NOT NULL,
   `path` varchar(200) NOT NULL,
-  `user_id` tinyint NOT NULL
+  `user_id` tinyint NOT NULL,
+  `public` tinyint NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --

@@ -8,7 +8,7 @@ if (isset($_POST["submit"])) {
     $_username = $conn->real_escape_string($_POST["username"]);
     $_password = $conn->real_escape_string($_POST["password-1"]);
     if (strcmp($_password, $conn->real_escape_string($_POST["password-2"])) != 0) {
-        header("Location: ../pages/account.php");
+        header("Location: ../pages/customiseUser.php");
         // Error message
 
         exit;
@@ -47,10 +47,10 @@ if (isset($_POST["submit"])) {
 
                 $_SESSION["login"] = 1;
                 $_SESSION["user"] = $user;
-                header("Location: ../pages/account.php");
+                header("Location: ../pages/customiseUser.php");
             } else {
                 // Error
-                header("Location: ../pages/account.php");
+                header("Location: ../pages/customiseUser.php");
             }
         } else {
             // Error message

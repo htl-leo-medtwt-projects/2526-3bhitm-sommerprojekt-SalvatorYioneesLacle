@@ -9,32 +9,21 @@ function initPage() {
     $nav = initNav();
     $str = "
         <main>
-            <errors>
-                <error>
-                    <header>No account</header>
-                    <p>You need to create an account to upload sounds</p>
-                </error>
-            </errors>
             <nav>
                 $nav
             </nav>
 
             <div class='box'>
-                <div class='upload-your-sounds'>Upload your sounds</div>
+                <div class='upload-your-sounds'>Edit your profile</div>
                 <div class='upload-box'>
                     <div class='upload-box-child'>
                         <div>
-                            <form action='../php/upload-file.php' method='post' enctype='multipart/form-data'>
-                                <p>Select audio file to upload</p>
-                                <div>
-                                    <input type='text' name='filename' id='filename'>
-                                    <p>File name</p>
-                                </div>
+                            <form action='../php/upload-pfp.php' method='post'>
                                 <div>
                                     <input type='file' name='fileToUpload' id='fileToUpload'>
-                                    <p>Upload</p>
+                                    <p>Profile picture</p>
                                 </div>
-                                <input class='button button-txt' type='submit' value='Upload' name='submit'>
+                                <input class='button button-txt' type='submit' value='Continue' name='submit'>
                             </form>
                         </div>
                     </div>
@@ -67,17 +56,6 @@ function initNav() {
                     C
                 </a>
             </div>
-            <div class='nav-account-box'>
-                <!-- Generated from figma -->
-                <div class='header-auth' id='headerAuthContainer'>
-                    <a class='button-signin' href='./signup.php'>
-                        <div class='button-text'>Sign in</div>
-                    </a>
-                    <a class='button-register' href='./login.php'>
-                        <div class='button-text'>Register</div>
-                    </a>
-                </div>
-            </div>
         </div>
     ";
 
@@ -93,8 +71,8 @@ function initNav() {
     <meta charset='UTF-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
     <link rel='stylesheet' href='../css/main.css'>
-    <link rel='stylesheet' href='../css/upload-sound.css'>
-    <script src='../js/upload.js' defer></script>
+    <link rel='stylesheet' href='../css/signup-login.css'>
+    <script src='../js/signup.js' defer></script>
     <title>Create your soundboard</title>
 </head>
 
