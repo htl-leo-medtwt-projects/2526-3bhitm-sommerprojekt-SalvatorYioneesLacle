@@ -13,10 +13,10 @@ function initPage() {
                 $nav
             </nav>
 
-            <div class='box'>
-                <div class='upload-your-sounds'>Create an account</div>
-                <div class='upload-box'>
-                    <div class='upload-box-child'>
+            <div class='form-wrapper'>
+                <div class='form-header'>Login to an account</div>
+                <div class='form-box'>
+                    <div class='form-box-child'>
                         <div>
                             <form action='../php/loginUser.php' method='post'>
                                 <div>
@@ -29,6 +29,9 @@ function initPage() {
                                 </div>
                                 <input class='button button-txt' type='submit' value='Continue' name='submit'>
                             </form>
+                            <div>
+                                <p>Or sign up <a href='./signup.php'>here</a></p>
+                            </div>
                         </div>
                     </div>
                     <!--<div class='button'>

@@ -4,7 +4,7 @@ if (session_status() === PHP_SESSION_NONE) {
 }
 require_once 'database.php';
 
-if (isset($_SESSION) && $_SESSION["user"]) {
+if (isset($_SESSION) && $_SESSION["user"] && $_SESSION['user'] != '' && $_SESSION['login'] == 1) {
     if ($_SESSION["user"]["username"]) {
         $username = htmlspecialchars($_SESSION["user"]["username"], ENT_QUOTES, 'UTF-8');
     }

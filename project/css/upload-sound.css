@@ -1,82 +1,74 @@
 
-
-.box {
-    width: 100%;
-    padding: 8em 0;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 2em;
-    color: var(--white);
+/* Style the label as a custom button */
+.custom-file-upload {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: #2563eb; /* Blue */
+  color: white;
+  font-family: 'Arial', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+ 
+/* Hover state */
+.custom-file-upload:hover {
+  background-color: #1d4ed8; /* Darker blue */
 }
 
-.upload-your-sounds {
-    font-size: 2.5em;
-    position: relative;
-    line-height: 100%;
+.custom-file-upload i {
+  margin-right: 8px;
 }
 
-.button-txt {
-    font-family: inter-18;
+/* Active state (when clicked) */
+.custom-file-upload:active {
+  transform: scale(0.98); /* Slight shrink effect */
+}
+ 
+/* Disabled state */
+#file-upload:disabled + .custom-file-upload {
+  background-color: #94a3b8; /* Grayed out */
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+ 
+/* Focus state (for keyboard accessibility) */
+#file-upload:focus + .custom-file-upload {
+  outline: 2px solid #3b82f6; /* Visible focus ring */
+  outline-offset: 2px;
 }
 
-.upload-box {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 2em;
-    color: var(--black);
+.file-upload-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+ 
+.file-name {
+  font-family: 'Arial', sans-serif;
+  font-size: 14px;
+  color: #475569;
+  max-width: 300px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-.upload-box-child {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 50em;
-    height: 25em;
-    position: relative;
-    background-color: var(--gray);
-    border: .15em solid var(--white);
-    color: var(--white);
+/* Smooth color transition on hover */
+.custom-file-upload {
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
-
-.upload-box-child>div {
-    height: 100%;
+ 
+/* Pulse animation for attention (optional) */
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.4); }
+  70% { box-shadow: 0 0 0 6px rgba(59, 130, 246, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0); }
 }
-
-.upload-box-child form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
-    height: 100%;
-}
-
-.button {
-    width: 7.5em;
-    padding: .8em;
-    border-radius: .5em;
-    background-color: var(--btnBackgrLight);
-    border: .1em solid var(--btnBorderLight);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: .5em;
-    cursor: pointer;
-    user-select: none;
-}
-
-.upload-icon {
-    width: 1.2em;
-    position: relative;
-}
-
-input[type=file] {
-    background-color: var(--white);
-    color: var(--black);
-    padding: .5em;
+ 
+/* Apply pulse on initial load (optional) */
+.custom-file-upload.pulse {
+  animation: pulse 2s infinite;
 }

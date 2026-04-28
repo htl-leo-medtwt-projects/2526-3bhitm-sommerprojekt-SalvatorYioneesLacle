@@ -13,6 +13,21 @@
     src: url(../fonts/Inter/static/Inter_18pt-Regular.ttf);
 }
 
+@font-face {
+    font-family: inter-24;
+    src: url(../fonts/Inter/static/Inter_24pt-Regular.ttf);
+}
+
+@font-face {
+    font-family: inter-28;
+    src: url(../fonts/Inter/static/Inter_28pt-Regular.ttf);
+}
+
+@font-face {
+    font-family: inter-28-black;
+    src: url(../fonts/Inter/static/Inter_28pt-Medium.ttf);
+}
+
 
 :root {
     /* Main colours */
@@ -93,12 +108,12 @@ nav a {
     font-size: 2em;
     text-decoration: none;
     color: var(--white);
-    transition: all .2s ease;
+    transition: all .2s ease-out;
 }
 
 .nav-btn img {
     width: 1em;
-    transition: all .2s ease;
+    transition: all .2s ease-out;
 }
 
 .nav-btn:hover,
@@ -109,7 +124,7 @@ nav a {
 .nav-account-box {
     padding: .4em;
     border-radius: .5em;
-    transition: all .2s ease;
+    transition: all .2s ease-out;
 }
 
 .nav-account-box:hover {
@@ -163,6 +178,121 @@ nav a {
 }
 
 /* figma end */
+
+/* Global settgins for input fields */
+input {
+    font-family: inter-28-black;
+    font-size: 1em;
+    color: var(--white);
+    background-color: transparent;
+    /* background-color: var(--gray); */
+    border: none;
+    outline: none;
+    border-bottom: .1em solid var(--white);
+    cursor: pointer;
+    transition: all .2s ease-out;
+}
+
+input:hover {
+    background-color: var(--white50);
+}
+
+input:focus,
+input:active {
+    color: var(--black);
+    background-color: var(--white);
+}
+
+input:not([type=submit]) {
+    width: 25em;
+    padding: .5em;
+}
+
+input[type=submit] {
+    padding: .5em .8em;
+    font-size: 1.2em;
+}
+
+input[type=submit]:hover {
+    color: var(--black);
+    background-color: var(--white);
+}
+
+input[type=file] {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+.form-header {
+    font-size: 2.5em;
+    position: relative;
+    line-height: 100%;
+}
+
+.upload-icon {
+    width: 1.2em;
+    position: relative;
+}
+
+
+/* Global settings for forms */
+.form-wrapper {
+    width: 100%;
+    height: calc(100vh - var(--navHeight));
+    /* padding: 8em 0; */
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2em;
+    color: var(--white);
+}
+
+.form-box-child {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 50em;
+    height: 25em;
+    position: relative;
+    /* background-color: var(--gray);
+    border: .15em solid var(--white);
+    color: var(--white); */
+}
+
+.form-box-child>div {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.form-box-child>div a {
+    /* text-decoration: none; */
+    color: var(--white);
+    transition: all .2s ease-out;
+}
+
+.form-box-child>div a:hover {
+    color: var(--highlight);
+}
+
+.form-box-child form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    height: 100%;
+}
 
 /* Error messages */
 errors {

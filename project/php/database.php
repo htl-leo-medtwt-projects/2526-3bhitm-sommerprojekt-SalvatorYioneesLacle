@@ -24,6 +24,10 @@ $res = $stmt->get_result();
 if ($res->num_rows === 1) {
     $user = $res->fetch_assoc();
     $_SESSION['user'] = $user;
+    $_SESSION['login'] = 1;
+} else {
+    $_SESSION['user'] = '';
+    $_SESSION['login'] = 0;
 }
 
 // $conn->close();

@@ -19,10 +19,10 @@ function initPage() {
                 $nav
             </nav>
 
-            <div class='box'>
-                <div class='upload-your-sounds'>Upload your sounds</div>
-                <div class='upload-box'>
-                    <div class='upload-box-child'>
+            <div class='form-wrapper'>
+                <div class='form-header'>Upload your sounds</div>
+                <div class='form-box'>
+                    <div class='form-box-child'>
                         <div>
                             <form action='../php/upload-file.php' method='post' enctype='multipart/form-data'>
                                 <p>Select audio file to upload</p>
@@ -32,9 +32,13 @@ function initPage() {
                                 </div>
                                 <div>
                                     <input type='file' name='fileToUpload' id='fileToUpload'>
+                                    <label for='fileToUpload' class='custom-file-upload'>
+                                        <i class='fas fa-upload mr-2'></i> Upload File
+                                    </label>
+                                    <span id='file-name' class='file-name'>No file selected</span>
                                     <p>Upload</p>
                                 </div>
-                                <input class='button button-txt' type='submit' value='Upload' name='submit'>
+                                <input class='button' type='submit' value='Upload' name='submit'>
                             </form>
                         </div>
                     </div>

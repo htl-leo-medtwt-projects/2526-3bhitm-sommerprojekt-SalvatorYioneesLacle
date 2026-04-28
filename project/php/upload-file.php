@@ -5,19 +5,21 @@ if (session_status() === PHP_SESSION_NONE) {
 require_once 'database.php';
 require_once 'userDataVariables.php';
 
-if (!isset($_SESSION['user']) || !isset($_POST['submit']) || !isset($_FILES['fileToUpload'])) {
+if (!is_array($_SESSION) || !isset($_SESSION['user']) || $_SESSION['user'] == ''
+    || $_SESSION['login'] == 0 || !isset($_POST['submit']) || !isset($_FILES['fileToUpload'])) {
+    header('Location: ../pages/upload-sound.php');
     exit;
 }
 
 $errors;
 
 $username = $_SESSION['user']['username'];
-$userId =  $_SESSION['user']['id']; // To assign owner user of sound file, on publish --> user_id = null
+$userId = $_SESSION['user']['id']; // To assign owner user of sound file, on publish --> user_id = null
 
 $target_dir = "../uploads/$username/";
 $target_file = $target_dir . basename($_FILES['fileToUpload']['name']);
 
-$file_name = trim($_POST['filename']) != null || '' ? basename(trim($_POST['filename']) ) : basename(explode('.', $_FILES['fileToUpload']['name'])[0]); // Fix this --> 
+$file_name = trim($_POST['filename']) != null || '' ? basename(trim($_POST['filename'])) : basename(explode('.', $_FILES['fileToUpload']['name'])[0]); // Fix this --> 
 $file_name_short = substr($file_name, 0, 3);
 
 $uploadOk = 1;

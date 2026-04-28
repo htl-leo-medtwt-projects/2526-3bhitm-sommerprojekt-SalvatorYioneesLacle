@@ -13,10 +13,10 @@ function initPage() {
                 $nav
             </nav>
 
-            <div class='box'>
-                <div class='upload-your-sounds'>Edit your profile</div>
-                <div class='upload-box'>
-                    <div class='upload-box-child'>
+            <div class='form-wrapper'>
+                <div class='form-header'>Edit your profile</div>
+                <div class='form-box'>
+                    <div class='form-box-child'>
                         <div>
                             <form action='../php/upload-pfp.php' method='post'>
                                 <div>
