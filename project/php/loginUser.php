@@ -5,8 +5,8 @@ if (session_status() === PHP_SESSION_NONE) {
 require_once "database.php";
 
 if (isset($_POST["submit"])) {
-    $_username = $_POST["username"];
-    $_password = $_POST["password"];
+    $_username = $conn->real_escape_string($_POST["username"]);
+    $_password = $conn->real_escape_string($_POST["password"]);
 
     $stmt = $conn->prepare(
         "SELECT * FROM users WHERE username = ? AND user_deleted = 0 LIMIT 1;"

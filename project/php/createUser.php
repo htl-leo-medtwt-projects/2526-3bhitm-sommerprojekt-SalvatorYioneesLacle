@@ -8,7 +8,7 @@ if (isset($_POST["submit"])) {
     $_username = $conn->real_escape_string($_POST["username"]);
     $_password = $conn->real_escape_string($_POST["password-1"]);
     if (strcmp($_password, $conn->real_escape_string($_POST["password-2"])) != 0) {
-        header("Location: ../pages/customiseUser.php");
+        header("Location: ../pages/signup.php");
         // Error message
 
         exit;
@@ -22,15 +22,14 @@ if (isset($_POST["submit"])) {
     );
     $stmt->bind_param("s", $_username);
     $stmt->execute();
-
     $res = $stmt->get_result();
 
-    if ($res->num_rows > 0) {
+    if ($res->num_rows === 1) {
         // User already exists
         header("Location: ../pages/signup.php");
     } else {
         $insertStatement = "INSERT INTO users (username, profile_picture, password_hash, signup_date, last_login, user_deleted)
-                        VALUES ('$_username', '../images/icons/light/Music.svg', '$_passwordHash',  NOW(), NOW(), 0);";
+                        VALUES ('$_username', '../images/icons/light/User.svg', '$_passwordHash',  NOW(), NOW(), 0);";
 
         if ($_res = $conn->query($insertStatement)) {
             // Search for user to get user data
@@ -47,10 +46,10 @@ if (isset($_POST["submit"])) {
 
                 $_SESSION["login"] = 1;
                 $_SESSION["user"] = $user;
-                header("Location: ../pages/customiseUser.php");
+                header("Location: ../pages/c.php");
             } else {
                 // Error
-                header("Location: ../pages/customiseUser.php");
+                header("Location: ../pages/signup.php");
             }
         } else {
             // Error message
@@ -62,6 +61,6 @@ if (isset($_POST["submit"])) {
     header("Location: ../pages/signup.php");
 }
 
-$conn->close();
+// $conn->close();
 
 ?>

@@ -7,3 +7,11 @@ function account() {
         });
     }
 }
+
+function navBtnAnimation(element) {
+    // Reset animation
+    element.classList.remove('shake');
+    element.offsetHeight;
+    // Start animation
+    element.classList.add('shake');
+}

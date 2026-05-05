@@ -55,7 +55,7 @@ function initNav() {
         <div id='nav-btn-box'>
             <div class='nav-left'>
                 <a href='../index.php' class='nav-btn'>
-                    <img src='../images/logo/Soundboard-Logo-Small.png' alt='home button'>
+                    <img src='../images/icons/light/Home.svg' alt='home button'>
                 </a>
                 <a href='./upload-sound.php' class='nav-btn'>
                     <img src='../images/icons/light/upload.svg' alt='upload button'>
@@ -63,9 +63,7 @@ function initNav() {
                 <a href='./soundboard.php' class='nav-btn'>
                     <img src='../images/icons/light/soundboard.svg' alt='soundboard button'>
                 </a>
-                <a href='' class='nav-btn'>
-                    C
-                </a>
+                
             </div>
         </div>
     ";

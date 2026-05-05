@@ -34,7 +34,8 @@
     --base: #311f63;
     --highlight: #9933cc;
     --white: #e3e3e3;
-    --white50: rgba(227, 227, 227, 0.2);
+    --white20: rgba(227, 227, 227, 0.2);
+    --white70: rgba(227, 227, 227, 0.7);
     --black: #000000;
     --black50: rgba(0, 0, 0, 0.5);
     --gray: #252525;
@@ -97,38 +98,77 @@ nav a {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    column-gap: 2em;
+    /* column-gap: 2em; */
 }
 
 .nav-btn {
+    width: var(--navHeight);
+    height: var(--navHeight);
+    color: var(--white);
+    text-decoration: none;
     display: flex;
     justify-content: center;
     align-items: center;
-
-    font-size: 2em;
-    text-decoration: none;
-    color: var(--white);
     transition: all .2s ease-out;
 }
 
 .nav-btn img {
-    width: 1em;
+    width: 2em;
     transition: all .2s ease-out;
 }
 
 .nav-btn:hover,
 .nav-btn:hover img {
-    filter: invert(0.5);
+    color: var(--highlight);
+}
+
+.nav-btn:hover img {
+    transition: all .2s ease-out;
+    transform: translateY(-.25em);
+    /* animation: shake 1s ease-in-out infinite alternate forwards; */
+}
+
+@keyframes shake {
+    from {
+        transform: translateY(0em);
+    }
+
+    to {
+        transform: translateY(-.2em);
+    }
 }
 
 .nav-account-box {
-    padding: .4em;
+    padding: .45em;
     border-radius: .5em;
     transition: all .2s ease-out;
 }
 
-.nav-account-box:hover {
-    background-color: var(--white50);
+.user-acc-box {
+    padding: .2em 1em;
+    transition: all .2s ease-out;
+}
+
+.user-acc-box:hover {
+    color: var(--btnBackgrLight);
+    background-color: var(--white20);
+}
+
+.user-acc-box a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+    color: var(--white);
+}
+
+.user-acc-box p {
+    font-family: inter-28;
+    font-size: 1.5em;
+}
+
+.user-acc-box img {
+    width: 3em;
 }
 
 /* Generated from figma */
@@ -143,31 +183,37 @@ nav a {
     color: #1e1e1e;
 }
 
-.button-signin {
-    flex: 1;
-    border-radius: 8px;
-    background-color: var(--btnBackgrLight);
-    border: 1px solid var(--btnBorderLight);
+.button-signin,
+.button-register {
+    border-radius: .2em;
     overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 8px;
     cursor: pointer;
+    transition: .2s all ease-out;
+}
+
+.button-signin {
+    color: var(--btnBackgrDark);
+    background-color: var(--btnBackgrLight);
+    border: .1em solid var(--btnBorderLight);
 }
 
 .button-register {
-    flex: 1;
-    border-radius: 8px;
-    background-color: var(--btnBackgrDark);
-    border: 1px solid var(--btnBorderDark);
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 8px;
     color: var(--btnBackgrLight);
-    cursor: pointer;
+    background-color: var(--btnBackgrDark);
+    border: .1em solid var(--btnBorderDark);
+}
+
+.button-signin:hover {
+    color: var(--btnBackgrLight);
+    background-color: var(--btnBackgrDark);
+}
+
+.button-register:hover {
+    border: .1em solid var(--btnBorderLight);
 }
 
 .button-text {
@@ -194,7 +240,7 @@ input {
 }
 
 input:hover {
-    background-color: var(--white50);
+    background-color: var(--white20);
 }
 
 input:focus,
@@ -299,11 +345,16 @@ errors {
     width: 20em;
     position: absolute;
     bottom: 2em;
-    left: 1em;
+    left: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: .5em;
 }
 
 error {
-    width: 22em;
+    width: 100%;
     height: 4.5em;
     padding: .5em;
     background-color: var(--errorBackgr);

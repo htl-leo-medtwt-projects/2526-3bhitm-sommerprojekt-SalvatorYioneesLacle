@@ -3,11 +3,9 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-if (
-    empty($_SESSION["login"]) ||
+if (empty($_SESSION["login"]) ||
     $_SESSION["login"] !== 1 ||
-    empty($_SESSION["user"])
-) {
+    empty($_SESSION["user"])) {
     header("Location: ../pages/login.php");
     exit;
 }

@@ -18,12 +18,18 @@ function initPage() {
                 <div class='form-box'>
                     <div class='form-box-child'>
                         <div>
-                            <form action='../php/upload-pfp.php' method='post'>
+                            <form action='../php/upload-pfp.php' method='post' enctype='multipart/form-data'>
                                 <div>
-                                    <input type='file' name='fileToUpload' id='fileToUpload'>
+                                    <div id='upload-btn-box'>
+                                        <input type='file' name='fileToUpload' id='fileToUpload'>
+                                        <label for='fileToUpload' class='custom-file-upload'>
+                                            <i class='fas fa-upload mr-2'></i> Upload File
+                                        </label>
+                                        <span id='file-name' class='file-name'>No file selected</span>
+                                    </div>
                                     <p>Profile picture</p>
                                 </div>
-                                <input class='button button-txt' type='submit' value='Continue' name='submit'>
+                                <input class='button' type='submit' value='Continue' name='submit'>
                             </form>
                         </div>
                     </div>
@@ -44,16 +50,13 @@ function initNav() {
         <div id='nav-btn-box'>
             <div class='nav-left'>
                 <a href='../index.php' class='nav-btn'>
-                    <img src='../images/logo/Soundboard-Logo-Small.png' alt='home button'>
+                    <img src='../images/icons/light/Home.svg' alt='home button'>
                 </a>
                 <a href='./upload-sound.php' class='nav-btn'>
                     <img src='../images/icons/light/upload.svg' alt='upload button'>
                 </a>
                 <a href='./soundboard.php' class='nav-btn'>
                     <img src='../images/icons/light/soundboard.svg' alt='soundboard button'>
-                </a>
-                <a href='' class='nav-btn'>
-                    C
                 </a>
             </div>
         </div>

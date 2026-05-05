@@ -8,14 +8,14 @@ if (isset($_SESSION) && $_SESSION["user"] && $_SESSION['user'] != '' && $_SESSIO
     if ($_SESSION["user"]["username"]) {
         $username = htmlspecialchars($_SESSION["user"]["username"], ENT_QUOTES, 'UTF-8');
     }
-    if ($_SESSION['user']['last_login']) {
-        $lastLogin = htmlspecialchars($_SESSION['user']['last_login'], ENT_QUOTES, 'UTF-8');
+    if ($_SESSION["user"]["last_login"]) {
+        $lastLogin = htmlspecialchars($_SESSION["user"]["last_login"], ENT_QUOTES, "UTF-8");
     }
-    if ($_SESSION['user']['signup_date']) {
-        $signupDate = htmlspecialchars($_SESSION['user']['signup_date'], ENT_QUOTES, 'UTF-8');
+    if ($_SESSION["user"]["signup_date"]) {
+        $signupDate = htmlspecialchars($_SESSION["user"]["signup_date"], ENT_QUOTES, "UTF-8");
     }
-    if ($_SESSION['user']['profile_picture']) {
-        $pfpPath = htmlspecialchars($_SESSION['user']['profile_picture'], ENT_QUOTES, 'UTF-8');
+    if ($_SESSION["user"]["profile_picture"]) {
+        $pfpPath = htmlspecialchars($_SESSION["user"]["profile_picture"], ENT_QUOTES, 'UTF-8');
     }
 } else {
     $username = 'user';

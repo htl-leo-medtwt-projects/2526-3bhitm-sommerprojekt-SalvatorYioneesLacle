@@ -27,17 +27,14 @@ function initNav() {
     $str = "
         <div id='nav-btn-box'>
             <div class='nav-left'>
-                <a href='./index.php' class='nav-btn'>
-                    <img src='../images/logo/Soundboard-Logo-Small.png' alt='home button'>
+                <a href='./index.php' class='nav-btn' onpointerenter='navBtnAnimation(this)'>
+                    <img src='../images/icons/light/Home.svg' alt='home button'>
                 </a>
                 <a href='./pages/upload-sound.php' class='nav-btn'>
                     <img src='./images/icons/light/upload.svg' alt='upload button'>
                 </a>
                 <a href='./pages/soundboard.php' class='nav-btn'>
                     <img src='./images/icons/light/soundboard.svg' alt='soundboard button'>
-                </a>
-                <a href='' class='nav-btn'>
-                    C
                 </a>
             </div>
             <div class='nav-account-box'>
@@ -50,13 +47,14 @@ function initNav() {
 }
 
 function initUserSignedIn() {
-    global $pfpPath;
+    global $pfpPath, $username;
     $str = "";
 
     if (isset($_SESSION) && $_SESSION["user"]) {
         $str = "
             <div class='user-acc-box'>
                 <a class='user-acc-pfp' href='./pages/account.php'>
+                    <p>$username</p>
                     <img src='$pfpPath' alt='user profile picture'>
                 </a>
             </div>

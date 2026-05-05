@@ -9,12 +9,6 @@ function initPage() {
     $nav = initNav();
     $str = "
         <main>
-            <errors>
-                <error>
-                    <header>No account</header>
-                    <p>You need to create an account to upload sounds</p>
-                </error>
-            </errors>
             <nav>
                 $nav
             </nav>
@@ -31,11 +25,13 @@ function initPage() {
                                     <p>File name</p>
                                 </div>
                                 <div>
-                                    <input type='file' name='fileToUpload' id='fileToUpload'>
-                                    <label for='fileToUpload' class='custom-file-upload'>
-                                        <i class='fas fa-upload mr-2'></i> Upload File
-                                    </label>
-                                    <span id='file-name' class='file-name'>No file selected</span>
+                                    <div id='upload-btn-box'>
+                                        <input type='file' name='fileToUpload' id='fileToUpload'>
+                                        <label for='fileToUpload' class='custom-file-upload'>
+                                            <i class='fas fa-upload mr-2'></i> Upload File
+                                        </label>
+                                        <span id='file-name' class='file-name'>No file selected</span>
+                                    </div>
                                     <p>Upload</p>
                                 </div>
                                 <input class='button' type='submit' value='Upload' name='submit'>
@@ -59,7 +55,7 @@ function initNav() {
         <div id='nav-btn-box'>
             <div class='nav-left'>
                 <a href='../index.php' class='nav-btn'>
-                    <img src='../images/logo/Soundboard-Logo-Small.png' alt='home button'>
+                    <img src='../images/icons/light/Home.svg' alt='home button'>
                 </a>
                 <a href='./upload-sound.php' class='nav-btn'>
                     <img src='../images/icons/light/upload.svg' alt='upload button'>
@@ -67,9 +63,7 @@ function initNav() {
                 <a href='./soundboard.php' class='nav-btn'>
                     <img src='../images/icons/light/soundboard.svg' alt='soundboard button'>
                 </a>
-                <a href='' class='nav-btn'>
-                    C
-                </a>
+                
             </div>
             <div class='nav-account-box'>
                 <!-- Generated from figma -->
