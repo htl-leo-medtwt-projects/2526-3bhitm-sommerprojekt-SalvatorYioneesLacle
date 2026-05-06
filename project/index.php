@@ -50,12 +50,12 @@ function initUserSignedIn() {
     global $pfpPath, $username;
     $str = "";
 
-    if (isset($_SESSION) && $_SESSION["user"]) {
+    if (isset($_SESSION) && isset($_SESSION["user"])) {
         $str = "
             <div class='user-acc-box'>
                 <a class='user-acc-pfp' href='./pages/account.php'>
                     <p>$username</p>
-                    <img src='$pfpPath' alt='user profile picture'>
+                    <img src='$pfpPath' alt='user pfp'>
                 </a>
             </div>
         ";

@@ -51,6 +51,7 @@ function initPage() {
 }
 
 function initNav() {
+    $initUserSignedIn = initUserSignedIn();
     $str = "
         <div id='nav-btn-box'>
             <div class='nav-left'>
@@ -66,18 +67,40 @@ function initNav() {
                 
             </div>
             <div class='nav-account-box'>
-                <!-- Generated from figma -->
-                <div class='header-auth' id='headerAuthContainer'>
-                    <a class='button-signin' href='./signup.php'>
-                        <div class='button-text'>Sign in</div>
-                    </a>
-                    <a class='button-register' href='./login.php'>
-                        <div class='button-text'>Register</div>
-                    </a>
-                </div>
+                $initUserSignedIn
             </div>
         </div>
     ";
+
+    return $str;
+}
+
+function initUserSignedIn() {
+    global $pfpPath, $username;
+    $str = "";
+
+    if (isset($_SESSION) && isset($_SESSION["user"])) {
+        $str = "
+            <div class='user-acc-box'>
+                <a class='user-acc-pfp' href='./account.php'>
+                    <p>$username</p>
+                    <img src='../$pfpPath' alt='user pfp'>
+                </a>
+            </div>
+        ";
+    } else {
+        $str = "
+            <!-- Generated from figma -->
+            <div class='header-auth' id='headerAuthContainer'>
+                <a class='button-signin' href='./signup.php'>
+                    <div class='button-text'>Sign in</div>
+                </a>
+                <a class='button-register' href='./login.php'>
+                    <div class='button-text'>Register</div>
+                </a>
+            </div>
+        ";
+    }
 
     return $str;
 }

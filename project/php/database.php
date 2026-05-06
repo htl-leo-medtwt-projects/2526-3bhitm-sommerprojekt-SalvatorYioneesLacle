@@ -13,13 +13,13 @@ $conn = new mysqli($_db_host, $_db_username, $_db_passwort, $_db_datenbank);
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
-// Return current user and set session variables
-$stmt = $conn->prepare(
-    "SELECT * FROM users where username = ?"
-);
-$stmt->bind_param("s", $username);
-$stmt->execute();
-$res = $stmt->get_result();
+// // Return current user and set session variables
+// $stmt = $conn->prepare(
+//     "SELECT * FROM users where username = ?"
+// );
+// $stmt->bind_param("s", $username);
+// $stmt->execute();
+// $res = $stmt->get_result();
 
 // if ($res->num_rows === 1) {
 //     $user = $res->fetch_assoc();
