@@ -22,8 +22,8 @@ $target_file = $target_dir . basename($_FILES['fileToUpload']['name']);
 $uploadOk = 1;
 
 // https://stackoverflow.com/questions/2303372/create-a-folder-if-it-doesnt-already-exist
-if (!file_exists("../uploads/$username/")) {
-    mkdir("../uploads/$username/", 0777, true);
+if (!file_exists("../uploads/$userId/")) {
+    mkdir("../uploads/$userId/", 0777, true);
 }
 
 // Check if file already exists
@@ -73,20 +73,21 @@ if ($uploadOk == 0) {
 
         // 3. Add to database
         $updateStatement = $conn->prepare(
-            "UPDATE users SET profile_picture = '{$target_file}' WHERE id = {$userId};"
+            "UPDATE users SET profile_picture = ? WHERE id = ?;"
         );
-        $updateStatement->bind_param("i", $user["id"]);
+        $updateStatement->bind_param("si", $target_file, $userId);
         $updateStatement->execute();
 
-        if ($_res = $conn->query($updateStatement)) {
+        // if ($_res = $conn->query($updateStatement)) {
             // $user = $res->fetch_assoc();
             // $_SESSION['user'] = $user;
             // echo "<br>Image $target_file has been added to the datebase.";
+            $_SESSION["user"]["profile_picture"] = $target_file;
             header('Location: ../pages/account.php');
-        } else {
+        // } else {
             // echo "<br> NO insertion into database";
-            header('Location: ../pages/customiseUser.php');
-        }
+            // header('Location: ../pages/customiseUser.php');
+        // }
     } else {
         header('Location: ../pages/customiseUser.php');
     }

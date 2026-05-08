@@ -46,7 +46,7 @@ if (isset($_POST["submit"])) {
 
                 $_SESSION["login"] = 1;
                 $_SESSION["user"] = $user;
-                header("Location: ../pages/c.php");
+                header("Location: ../pages/account.php");
             } else {
                 // Error
                 header("Location: ../pages/signup.php");

@@ -7,7 +7,7 @@ require_once '../php/userDataVariables.php';
 // require_once "../php/authCheck.php";
 
 function initPage() {
-    global $username, $lastLogin;
+    global $username, $lastLogin, $pfpPath;
     $nav = initNav();
 
     $str = "
@@ -17,15 +17,19 @@ function initPage() {
             </nav>
             <div class='box'>
                 <div class='user'>
-                    <a href='../pages/customiseUser.php'>
-                        <img class='icon' src='../images/icons/light/user.svg' alt='user icon'>
-                    </a>
+                    <div class='user-pfp-box'>
+                        <img class='user-pfp' src='$pfpPath' alt='user pfp'>
+                        <div class='edit-btn'>
+                            <img src='../images/icons/light/Edit.svg' alt='edit icon'>
+                        </div>
+                    </div>
                 </div>
                 <div class='text-box'>
-                    <div class='welcome-user'>Welcome, $username</div>
+                    <div class='username'>$username</div>
                     <div class='last-login'>Last Login: $lastLogin</div>
                 </div>
             </div>
+            <div class='popup-box'></div>
         </main>
     ";
     return $str;

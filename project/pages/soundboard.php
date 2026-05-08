@@ -95,6 +95,18 @@ function generateButtons() {
     return $str;
 }
 
+function playSound() {
+    // Source - https://stackoverflow.com/a/8773102
+    // Posted by Dipu Raj, modified by community. See post 'Timeline' for change history
+    // Retrieved 2026-05-08, License - CC BY-SA 4.0
+
+    // $myAudioFile = "myAudiofile.wav";
+    // echo '<audio autoplay="true" style="display:none;">
+    //          <source src="' . $myAudioFile . '" type="audio/wav">
+    //      </audio>';
+
+}
+
 ?>
 
 <!DOCTYPE html>
