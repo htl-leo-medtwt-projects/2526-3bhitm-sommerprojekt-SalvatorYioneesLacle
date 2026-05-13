@@ -13,6 +13,7 @@ $conn = new mysqli($_db_host, $_db_username, $_db_passwort, $_db_datenbank);
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
+
 // // Return current user and set session variables
 // $stmt = $conn->prepare(
 //     "SELECT * FROM users where username = ?"
@@ -30,4 +31,3 @@ if ($conn->connect_error) {
 //     $_SESSION['login'] = 0;
 // }
 
-// $conn->close();

@@ -16,7 +16,7 @@ $errors;
 $username = $_SESSION['user']['username'];
 $userId = $_SESSION['user']['id']; // To assign owner user of sound file, on publish --> user_id = null
 
-$target_dir = "../uploads/$username/";
+$target_dir = "../uploads/$userId/";
 $target_file = $target_dir . basename($_FILES['fileToUpload']['name']);
 
 $file_name = trim($_POST['filename']) != null || '' ? basename(trim($_POST['filename'])) : basename(explode('.', $_FILES['fileToUpload']['name'])[0]); // Fix this --> 
@@ -25,8 +25,8 @@ $file_name_short = substr($file_name, 0, 3);
 $uploadOk = 1;
 
 // https://stackoverflow.com/questions/2303372/create-a-folder-if-it-doesnt-already-exist
-if (!file_exists("../uploads/$username/")) {
-    mkdir("../uploads/$username/", 0777, true);
+if (!file_exists("../uploads/$userId/")) {
+    mkdir("../uploads/$userId/", 0777, true);
 }
 
 // Check if file already exists
@@ -54,7 +54,7 @@ if ($fileType != "wav" && $fileType != "mp3") {
 }
 
 // Check file size
-if ($_FILES["fileToUpload"]["size"] > 500000) {
+if ($_FILES["fileToUpload"]["size"] > 1000000) {
     // echo "Sorry, your file is too large.";
     $uploadOk = 0;
     header('Location: ../pages/upload-sound.php');

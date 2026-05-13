@@ -5,6 +5,49 @@ if (session_status() === PHP_SESSION_NONE) {
 require_once '../php/database.php';
 require_once '../php/userDataVariables.php';
 
+// Get all sounds where public
+$stmt = $conn->prepare(
+    "SELECT * FROM sounds where public = 1 or user_id = ?"
+);
+$stmt->bind_param("i", $id);
+$stmt->execute();
+$res = $stmt->get_result();
+
+if ($res->num_rows > 0) {
+    $sounds = $res->fetch_all();
+    $_SESSION["sounds"] = $sounds;
+}
+
+if (isset($_SESSION) && isset($_SESSION["sounds"])) {
+    for ($i = 0; $i < count($_SESSION["sounds"]); $i++) {
+        if (isset($_SESSION["sounds"][$i])) {
+            $soundPath[$i] = $_SESSION["sounds"][$i][3];
+        }
+    }
+}
+
+function generateButtons() {
+    global $soundPath;
+    $str = '';
+
+    for ($i = 0; $i < count($soundPath); $i++) {
+        $str .= "<img class='buttons-icon' src='../images/soundboard/soundboard_button_alpha_v5.svg' alt='soundboard button $i' onclick=\"playSound('$soundPath[$i]')\">";
+    }
+
+    return $str;
+}
+
+function playSound() {
+    // Source - https://stackoverflow.com/a/8773102
+    // Posted by Dipu Raj, modified by community. See post 'Timeline' for change history
+    // Retrieved 2026-05-08, License - CC BY-SA 4.0
+
+    // $myAudioFile = "myAudiofile.wav";
+    // echo '<audio autoplay="true" style="display:none;">
+    //          <source src="' . $myAudioFile . '" type="audio/wav">
+    //      </audio>';
+
+}
 
 function initPage() {
     $str = '';
@@ -83,28 +126,16 @@ function initUserSignedIn() {
 
     return $str;
 }
-// move to php
-function generateButtons() {
-    global $soundPath;
-    $str = '';
 
-    for ($i = 0; $i < count($soundPath); $i++) {
-        $str .= "<img class='buttons-icon' src='../images/soundboard/soundboard_button_alpha Kopie.svg' alt='soundboard button $i'>";
-    }
+function initVolumeBar() {
+    // https://freefrontend.com/css-range-sliders/ - CSS-only Sound Meter
+    $str = "
+        <div class='volume-bar-box'>
+            <input type='range' class='volume-bar' min='1' max='20' value='17' />
+        </div>
+    ";
 
     return $str;
-}
-
-function playSound() {
-    // Source - https://stackoverflow.com/a/8773102
-    // Posted by Dipu Raj, modified by community. See post 'Timeline' for change history
-    // Retrieved 2026-05-08, License - CC BY-SA 4.0
-
-    // $myAudioFile = "myAudiofile.wav";
-    // echo '<audio autoplay="true" style="display:none;">
-    //          <source src="' . $myAudioFile . '" type="audio/wav">
-    //      </audio>';
-
 }
 
 ?>

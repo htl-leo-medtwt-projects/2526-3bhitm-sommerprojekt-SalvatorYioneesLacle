@@ -17,15 +17,15 @@ function initPage() {
             </nav>
             <div class='box'>
                 <div class='user'>
-                    <div class='user-pfp-box'>
-                        <img class='user-pfp' src='$pfpPath' alt='user pfp'>
+                    <div class='user-pfp-box' onclick=\"getPopUp(0)\">
+                        <img class='user-pfp' src='../$pfpPath' alt='user pfp'>
                         <div class='edit-btn'>
                             <img src='../images/icons/light/Edit.svg' alt='edit icon'>
                         </div>
                     </div>
                 </div>
                 <div class='text-box'>
-                    <div class='username'>$username</div>
+                    <div class='username' onclick=\"getPopUp(1)\">$username</div>
                     <div class='last-login'>Last Login: $lastLogin</div>
                 </div>
             </div>
@@ -66,6 +66,7 @@ function initNav() {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="../css/account.css">
+    <link rel="stylesheet" href="../css/signup-login.css">
     <script src="../js/account.js" defer></script>
     <title>Soundboard - Your Account</title>
 </head>

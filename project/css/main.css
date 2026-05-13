@@ -277,8 +277,9 @@ input[type=file] {
 
 .form-header {
     font-size: 2.5em;
-    position: relative;
+    /* position: relative; */
     line-height: 100%;
+    text-align: center;
 }
 
 .upload-icon {
@@ -301,11 +302,42 @@ input[type=file] {
     color: var(--white);
 }
 
-.popup {
-    width: 20em;
+/* Global settings for forms in pop ups */
+.form-wrapper-popup {
+    width: 100%;
+    padding: 2.5em 0;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: .1em solid var(--white);
+    gap: 1em;
+    color: var(--white);
+}
+
+.popup-box {
+    width: 70vw;
+    height: 70vh;
     overflow-x: hidden;
     overflow-y: scroll;
     position: absolute;
+    top: calc(50% - 35vh + var(--navHeight));
+    left: calc(50% - 35vw);
+}
+
+.popup {
+    width: 100%;
+    height: max-content;
+    background-color: var(--gray);
+    backdrop-filter: blur(1em);
+}
+
+.popup form>div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1em;
 }
 
 .form-box-child {
@@ -346,6 +378,7 @@ input[type=file] {
     justify-content: space-around;
     height: 100%;
 }
+
 
 /* Error messages */
 errors {

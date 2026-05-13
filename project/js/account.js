@@ -1,10 +1,22 @@
-function initPopUp() {
+const fileUpload = document.getElementById('fileToUpload');
+const fileName = document.getElementById('file-name');
+
+fileUpload.addEventListener('change', (e) => {
+    const selectedFile = e.target.files[0];
+    if (selectedFile) {
+        fileName.textContent = selectedFile.name;
+    } else {
+        fileName.textContent = 'No file selected';
+    }
+});
+
+function getPopUp(index) {
     let str = "";
 
-    if (true) {
+    if (index == 0) {
         str = `
-            <div class='form-wrapper popup'>
-                <div class='form-header'>Edit your profile</div>
+        <div class='popup'>
+            <div class='form-wrapper-popup'>
                 <div class='form-box'>
                     <div class='form-box-child'>
                         <div>
@@ -17,18 +29,36 @@ function initPopUp() {
                                         </label>
                                         <span id='file-name' class='file-name'>No file selected</span>
                                     </div>
-                                    <p>Profile picture</p>
                                 </div>
                                 <input class='button' type='submit' value='Continue' name='submit'>
                             </form>
                         </div>
                     </div>
-                    <!--<div class='button'>
-                        <img class='upload-icon' src='../images/icons/dark/upload.svg' alt='upload-image'>
-                        <div class='button-txt'>Upload</div>
-                    </div>-->
                 </div>
             </div>
+        </div>
+        `;
+    }
+    if (index == 1) {
+        str = `
+        <div class='popup'>
+            <div class='form-wrapper-popup'>
+                <div class='form-header'>Edit your profile</div>
+                <div class='form-box'>
+                    <div class='form-box-child'>
+                        <div>
+                            <form action='../php/editUser.php' method='post' enctype='multipart/form-data'>
+                                <div>
+                                    <input type='text' name='username'>
+                                    <p>Username</p>
+                                </div>
+                                <input class='button' type='submit' value='Continue' name='submit'>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         `;
     }
 

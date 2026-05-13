@@ -7,7 +7,7 @@ require_once 'userDataVariables.php';
 
 if (!is_array($_SESSION) || !isset($_SESSION['user']) || $_SESSION['user'] == ''
     || $_SESSION['login'] == 0 || !isset($_POST['submit']) || !isset($_FILES['fileToUpload'])) {
-    header('Location: ../pages/customiseUser.php');
+    // header('Location: ../pages/customiseUser.php');
     exit;
 }
 
@@ -16,7 +16,7 @@ $errors;
 $username = $_SESSION['user']['username'];
 $userId = $_SESSION['user']['id'];
 
-$target_dir = "../uploads/$username/";
+$target_dir = "../uploads/$userId/";
 $target_file = $target_dir . basename($_FILES['fileToUpload']['name']);
 
 $uploadOk = 1;
@@ -30,7 +30,14 @@ if (!file_exists("../uploads/$userId/")) {
 if (file_exists($target_file)) {
     // echo "Sorry, file already exists.";
     $uploadOk = 0;
-    header('Location: ../pages/customiseUser.php');
+    // header('Location: ../pages/customiseUser.php');
+}
+
+// Check file size
+if ($_FILES["fileToUpload"]["size"] > 1000000) {
+    // echo "Sorry, your file is too large.";
+    $uploadOk = 0;
+    // header('Location: ../pages/customiseUser.php');
 }
 
 $fileType = pathinfo($target_file, PATHINFO_EXTENSION);
@@ -39,7 +46,7 @@ if (isset($_POST['submit'])) {
     if ($check !== false) {
         // echo "File is an image - " . $check['mime'] . ".";
         $uploadOk = 1;
-        header('Location: ../pages/customiseUser.php');
+        // header('Location: ../pages/customiseUser.php');
     }
 }
 
@@ -47,20 +54,13 @@ if (isset($_POST['submit'])) {
 if ($fileType != "jpg" && $fileType != "png" && $fileType != "jpeg" && $fileType != "gif") {
     // echo "Sorry, only MP3 and WAV files are allowed.";
     $uploadOk = 0;
-    header('Location: ../pages/customiseUser.php');
-}
-
-// Check file size
-if ($_FILES["fileToUpload"]["size"] > 500000) {
-    // echo "Sorry, your file is too large.";
-    $uploadOk = 0;
-    header('Location: ../pages/customiseUser.php');
+    // header('Location: ../pages/customiseUser.php');
 }
 
 // Check if $uploadOk is set to 0 by an error
 if ($uploadOk == 0) {
     // echo "Sorry, your file was not uploaded.";
-    header('Location: ../pages/customiseUser.php');
+    // header('Location: ../pages/customiseUser.php');
 } else {
     // 1. Upload file
     if (move_uploaded_file($_FILES['fileToUpload']['tmp_name'], $target_file)) {
@@ -79,17 +79,17 @@ if ($uploadOk == 0) {
         $updateStatement->execute();
 
         // if ($_res = $conn->query($updateStatement)) {
-            // $user = $res->fetch_assoc();
-            // $_SESSION['user'] = $user;
-            // echo "<br>Image $target_file has been added to the datebase.";
-            $_SESSION["user"]["profile_picture"] = $target_file;
-            header('Location: ../pages/account.php');
+        // $user = $res->fetch_assoc();
+        // $_SESSION['user'] = $user;
+        // echo "<br>Image $target_file has been added to the datebase.";
+        $_SESSION["user"]["profile_picture"] = $target_file;
+        header('Location: ../pages/account.php');
         // } else {
-            // echo "<br> NO insertion into database";
-            // header('Location: ../pages/customiseUser.php');
+        // echo "<br> NO insertion into database";
+        // header('Location: ../pages/customiseUser.php');
         // }
     } else {
-        header('Location: ../pages/customiseUser.php');
+        // header('Location: ../pages/customiseUser.php');
     }
 }
 
