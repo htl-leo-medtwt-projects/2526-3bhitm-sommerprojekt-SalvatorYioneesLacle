@@ -1,14 +1,19 @@
 const fileUpload = document.getElementById('fileToUpload');
 const fileName = document.getElementById('file-name');
 
-fileUpload.addEventListener('change', (e) => {
-    const selectedFile = e.target.files[0];
-    if (selectedFile) {
-        fileName.textContent = selectedFile.name;
-    } else {
-        fileName.textContent = 'No file selected';
-    }
-});
+function updateSpan() {
+    const fileUpload = document.getElementById('fileToUpload');
+    const fileName = document.getElementById('file-name');
+    
+    fileUpload.addEventListener('change', (e) => {
+        const selectedFile = e.target.files[0];
+        if (selectedFile) {
+            fileName.textContent = selectedFile.name;
+        } else {
+            fileName.textContent = 'No file selected';
+        }
+    });
+}
 
 function getPopUp(index) {
     let str = "";
@@ -22,10 +27,17 @@ function getPopUp(index) {
                         <div>
                             <form action='../php/upload-pfp.php' method='post' enctype='multipart/form-data'>
                                 <div>
+                                    <input type='text' name='username'>
+                                    <p>Username</p>
+                                </div>
+                                <div>
                                     <div id='upload-btn-box'>
                                         <input type='file' name='fileToUpload' id='fileToUpload'>
                                         <label for='fileToUpload' class='custom-file-upload'>
-                                            <i class='fas fa-upload mr-2'></i> Upload File
+                                            <i class='fas fa-upload mr-2'>
+                                                <img class='upload-icon' src='../images/icons/dark/upload.svg' alt='upload-image'>
+                                            </i>
+                                            Upload profile picture
                                         </label>
                                         <span id='file-name' class='file-name'>No file selected</span>
                                     </div>
@@ -63,4 +75,6 @@ function getPopUp(index) {
     }
 
     document.querySelector('.popup-box').innerHTML += str;
+
+    updateSpan();
 }

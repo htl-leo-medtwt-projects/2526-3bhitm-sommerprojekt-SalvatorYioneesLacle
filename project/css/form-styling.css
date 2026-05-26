@@ -1,0 +1,89 @@
+/* Style the label as a custom button */
+.custom-file-upload {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    font-family: inter-28, 'Arial', sans-serif;
+    font-weight: 500;
+    padding: .8em 1.2em;
+    background-color: var(--white);
+    color: var(--black);
+    gap: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Hover state */
+.custom-file-upload:hover {
+    background-color: var(--white70);
+}
+
+.custom-file-upload i {
+    display: flex;
+}
+
+/* Active state (when clicked) */
+.custom-file-upload:active {
+    transform: scale(0.975);
+    /* Slight shrink effect */
+}
+
+/* Disabled state */
+#file-upload:disabled+.custom-file-upload {
+    background-color: var(--gray);
+    /* Grayed out */
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+/* Focus state (for keyboard accessibility) */
+#file-upload:focus+.custom-file-upload {
+    outline: 2px solid var(--black);
+    /* Visible focus ring */
+    outline-offset: 2px;
+}
+
+.file-upload-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+}
+
+.file-name {
+    font-family: inter-28, 'Arial', sans-serif;
+    font-size: .8em;
+    color: var(--white70);
+    max-width: 300px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Pulse animation for attention (optional) */
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.4);
+    }
+
+    70% {
+        box-shadow: 0 0 0 6px rgba(59, 130, 246, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(59, 130, 246, 0);
+    }
+}
+
+/* Apply pulse on initial load (optional) */
+.custom-file-upload.pulse {
+    animation: pulse 2s infinite;
+}
+
+#upload-btn-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: .5em;
+}

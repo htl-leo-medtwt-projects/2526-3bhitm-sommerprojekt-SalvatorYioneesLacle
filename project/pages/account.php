@@ -67,6 +67,7 @@ function initNav() {
     <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="../css/account.css">
     <link rel="stylesheet" href="../css/signup-login.css">
+    <link rel='stylesheet' href='../css/form-styling.css'>
     <script src="../js/account.js" defer></script>
     <title>Soundboard - Your Account</title>
 </head>

@@ -23,11 +23,13 @@ function initPage() {
                                     <div id='upload-btn-box'>
                                         <input type='file' name='fileToUpload' id='fileToUpload'>
                                         <label for='fileToUpload' class='custom-file-upload'>
-                                            <i class='fas fa-upload mr-2'></i> Upload File
+                                            <i class='fas fa-upload mr-2'>
+                                                <img class='upload-icon' src='../images/icons/dark/upload.svg' alt='upload-image'>
+                                            </i>
+                                            Upload profile picture
                                         </label>
                                         <span id='file-name' class='file-name'>No file selected</span>
                                     </div>
-                                    <p>Profile picture</p>
                                 </div>
                                 <input class='button' type='submit' value='Continue' name='submit'>
                             </form>
@@ -75,6 +77,7 @@ function initNav() {
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
     <link rel='stylesheet' href='../css/main.css'>
     <link rel='stylesheet' href='../css/signup-login.css'>
+    <link rel='stylesheet' href='../css/form-styling.css'>
     <script src='../js/signup.js' defer></script>
     <title>Create your soundboard</title>
 </head>
