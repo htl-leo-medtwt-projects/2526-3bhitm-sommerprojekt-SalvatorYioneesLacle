@@ -132,6 +132,10 @@ function initUserSignedIn() {
 function initVolumeBar() {
     // https://freefrontend.com/css-range-sliders/ - CSS-only Sound Meter
     $str = "
+        <div class='range-slider'>
+            <input type='range' min='0' max='100' value='50' steps='10'>
+            <span data-value='50'>50</span>    
+        </div>
         <div class='volume-bar-box'>
             <input type='range' class='volume-bar' min='-60' max='0' value='-60' />
         </div>
@@ -156,7 +160,6 @@ function initVolumeBar() {
 
 <body>
     <?php echo initPage(); ?>
-    <audio src="./audio/erro.mp3"></audio>
 </body>
 
 </html>

@@ -27,6 +27,7 @@ function initPage() {
                 <div class='text-box'>
                     <div class='username' onclick=\"getPopUp(1)\">$username</div>
                     <div class='last-login'>Last Login: $lastLogin</div>
+                    <div class='logout' onclick='logoutUser()'>Log out</div>
                 </div>
             </div>
             <div class='popup-box'></div>

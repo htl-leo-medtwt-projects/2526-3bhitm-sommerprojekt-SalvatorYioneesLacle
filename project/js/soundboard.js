@@ -1,4 +1,4 @@
-let volume = 1;
+let volume = 0.1;
 
 function editVolume(value) {
     if (value >= 0 && value <= 100) {
@@ -81,11 +81,14 @@ async function audioStuff(sound) {
 }
 
 function audioStuff1(sound) {
+    // https://stackoverflow.com/questions/28123525/how-do-you-get-the-decibel-level-of-an-audio-in-javascript
+
     var audioCtx = new AudioContext();
-    var audio = sound;
-    var processor = audioCtx.createScriptProcessor(2048, 1, 1);
+    var audio = sound; // Abgeändert --> Mikrofonzugriff im Original
+    var processor = audioCtx.createScriptProcessor(256, 1, 1);
     var meter = document.getElementById('meter');
     var source;
+    let prevRms = 0;
 
     audio.addEventListener('canplaythrough', function () {
         source = audioCtx.createMediaElementSource(audio);
@@ -104,8 +107,16 @@ function audioStuff1(sound) {
             , rms;
         while (i < len) total += Math.abs(input[i++]);
         rms = Math.sqrt(total / len);
-        console.log(( rms * 100 - 60 ));
-        document.getElementsByClassName('volume-bar').item(0).value = rms * 100 - 60
+        // console.log((rms * 100 - 60));
+        // if (rms - prevRms < 1) {
+            document.getElementsByClassName('volume-bar').item(0).value = rms * 100 - 60;
+        // }
+        prevRms = rms;
     };
 }
 audioStuff1(new Audio('../uploads/14/2.mp3'));
+
+// JS to update visual display of current value
+document.querySelectorAll("input[type=range]").forEach(r => {
+  r.addEventListener("input", (e) => r.nextElementSibling.textContent = e.target.value)
+})

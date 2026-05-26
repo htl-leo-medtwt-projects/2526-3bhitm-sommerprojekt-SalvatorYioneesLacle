@@ -15,6 +15,10 @@ function updateSpan() {
     });
 }
 
+function logoutUser() {
+    window.location.href = '../php/logout.php';
+}
+
 function getPopUp(index) {
     let str = "";
 
