@@ -31,7 +31,7 @@ function generateButtons() {
     $str = '';
 
     for ($i = 0; $i < count($soundPath); $i++) {
-        $str .= "<img class='buttons-icon' src='../images/soundboard/soundboard_button_alpha_v5.svg' alt='soundboard button $i' onclick=\"playSound('$soundPath[$i]')\">";
+        $str .= "<img class='buttons-icon' src='../images/soundboard/soundboard_button_alpha_v5.svg' alt='soundboard button $i' onmousedown=\"playSound('$soundPath[$i]')\">\n";
     }
 
     return $str;
@@ -53,6 +53,7 @@ function initPage() {
     $str = '';
     $nav = initNav();
     $generateButtons = generateButtons();
+    $volBar = initVolumeBar();
 
     $str .= "
         <main>
@@ -64,6 +65,7 @@ function initPage() {
                     $generateButtons
                 </div>
             </div>
+            $volBar
         </main>
     ";
 
@@ -131,7 +133,7 @@ function initVolumeBar() {
     // https://freefrontend.com/css-range-sliders/ - CSS-only Sound Meter
     $str = "
         <div class='volume-bar-box'>
-            <input type='range' class='volume-bar' min='1' max='20' value='17' />
+            <input type='range' class='volume-bar' min='-60' max='0' value='-60' />
         </div>
     ";
 
@@ -154,6 +156,7 @@ function initVolumeBar() {
 
 <body>
     <?php echo initPage(); ?>
+    <audio src="./audio/erro.mp3"></audio>
 </body>
 
 </html>

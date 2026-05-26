@@ -33,8 +33,19 @@
     transform: scale(.92);
 }
 
+.volume-bar-box {
+    position: absolute;
+    bottom: 2em;
+    right: 2em;
+    transform-origin: bottom right;
+}
+
+.volume-bar {
+    /* transform: rotateZ(-90deg); */
+}
+
 /* https://freefrontend.com/css-range-sliders/ - CSS-only Sound Meter */
-[type="range"].volume {
+[type="range"].volume-bar {
     font-size: 1em;
     width: 20em;
     border: 0.25em solid #000;
@@ -44,9 +55,9 @@
     appearance: none;
     height: 3.5em;
     background:
-        repeating-linear-gradient(90deg, #000 0 0.1em, #0000 0 0.9em, #000 0 1em),
+        /*repeating-linear-gradient(90deg, #000 0 0.1em, #0000 0 0.9em, #000 0 1em),*/
         radial-gradient(#fff5, #fff0) 0 0 / 1em 100%,
-        linear-gradient(90deg, #29ee01 70%, #ffd308 0 80%, #e00 0),
+        linear-gradient(90deg, #29ee01 13.33em, #ffd308 0 16.67em, #e00 0),
         #f005;
     overflow: hidden;
     box-shadow:
@@ -69,9 +80,9 @@
     }
 }
 
-[type="range"].volume::-webkit-slider-thumb {
+[type="range"].volume-bar::-webkit-slider-thumb {
     appearance: none;
-    width: 0.9em;
+    width: 1em;
     height: 3.6em;
     animation: blink 0.7s infinite;
     color: #000a;
@@ -85,26 +96,28 @@
         14em 0, 15em 0, 16em 0, 17em 0, 18em 0, 19em 0;
 }
 
-[type="range"].volume::-moz-range-thumb {
+[type="range"].volume-bar::-moz-range-thumb {
     appearance: none;
-    width: 0.9em;
+    width: 1em;
     height: 3.6em;
     animation: blink 0.7s infinite;
     color: #000a;
     border: 0;
     border-radius: 0;
+    background: #fff2;
     box-shadow:
+        0 0 0.5em #fff8,
         1em 0, 2em 0, 3em 0, 4em 0, 5em 0, 6em 0, 7em 0,
         8em 0, 9em 0, 10em 0, 11em 0, 12em 0, 13em 0,
         14em 0, 15em 0, 16em 0, 17em 0, 18em 0, 19em 0;
 }
 
 @media (prefers-reduced-motion) {
-    [type="range"].volume::-webkit-slider-thumb {
+    [type="range"].volume-bar::-webkit-slider-thumb {
         animation: none;
     }
 
-    [type="range"].volume::-moz-range-thumb {
+    [type="range"].volume-bar::-moz-range-thumb {
         animation: none;
     }
 }

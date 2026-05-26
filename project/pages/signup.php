@@ -20,18 +20,18 @@ function initPage() {
                         <div>
                             <form action='../php/createUser.php' method='post'>
                                 <div>
-                                    <input type='text' name='username'>
+                                    <input class='input' type='text' name='username'>
                                     <p>Username</p>
                                 </div>
                                 <div>
-                                    <input type='password' name='password-1'>
+                                    <input class='input' type='password' name='password-1'>
                                     <p>Password</p>
                                 </div>
                                 <div>
-                                    <input type='password' name='password-2'>
+                                    <input class='input' type='password' name='password-2'>
                                     <p>Retype password</p>
                                 </div>
-                                <input class='button button-txt' type='submit' value='Continue' name='submit'>
+                                <input class='input button button-txt' type='submit' value='Continue' name='submit'>
                             </form>
                             <div>
                                 <p>Or log in <a href='./login.php'>here</a></p>

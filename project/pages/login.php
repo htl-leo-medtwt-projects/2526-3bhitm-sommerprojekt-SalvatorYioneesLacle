@@ -20,14 +20,14 @@ function initPage() {
                         <div>
                             <form action='../php/loginUser.php' method='post'>
                                 <div>
-                                    <input type='text' name='username'>
+                                    <input class='input' type='text' name='username'>
                                     <p>Username</p>
                                 </div>
                                 <div>
-                                    <input type='password' name='password'>
+                                    <input class='input' type='password' name='password'>
                                     <p>Password</p>
                                 </div>
-                                <input class='button button-txt' type='submit' value='Continue' name='submit'>
+                                <input class='input button button-txt' type='submit' value='Continue' name='submit'>
                             </form>
                             <div>
                                 <p>Or sign up <a href='./signup.php'>here</a></p>

@@ -226,7 +226,7 @@ nav a {
 /* figma end */
 
 /* Global settgins for input fields */
-input {
+.input {
     font-family: inter-28-black;
     font-size: 1em;
     color: var(--white);
@@ -239,32 +239,32 @@ input {
     transition: all .2s ease-out;
 }
 
-input:hover {
+.input:hover {
     background-color: var(--white20);
 }
 
-input:focus,
-input:active {
+.input:focus,
+.input:active {
     color: var(--black);
     background-color: var(--white);
 }
 
-input:not([type=submit]) {
+.input:not([type=submit]) {
     width: 25em;
     padding: .5em;
 }
 
-input[type=submit] {
+.input[type=submit] {
     padding: .5em .8em;
     font-size: 1.2em;
 }
 
-input[type=submit]:hover {
+.input[type=submit]:hover {
     color: var(--black);
     background-color: var(--white);
 }
 
-input[type=file] {
+.input[type=file] {
     position: absolute;
     width: 1px;
     height: 1px;

@@ -27,12 +27,12 @@ function getPopUp(index) {
                         <div>
                             <form action='../php/upload-pfp.php' method='post' enctype='multipart/form-data'>
                                 <div>
-                                    <input type='text' name='username'>
+                                    <input class='input' type='text' name='username'>
                                     <p>Username</p>
                                 </div>
                                 <div>
                                     <div id='upload-btn-box'>
-                                        <input type='file' name='fileToUpload' id='fileToUpload'>
+                                        <input class='input' type='file' name='fileToUpload' id='fileToUpload'>
                                         <label for='fileToUpload' class='custom-file-upload'>
                                             <i class='fas fa-upload mr-2'>
                                                 <img class='upload-icon' src='../images/icons/dark/upload.svg' alt='upload-image'>
@@ -42,7 +42,7 @@ function getPopUp(index) {
                                         <span id='file-name' class='file-name'>No file selected</span>
                                     </div>
                                 </div>
-                                <input class='button' type='submit' value='Continue' name='submit'>
+                                <input class='input button' type='submit' value='Continue' name='submit'>
                             </form>
                         </div>
                     </div>
@@ -61,10 +61,10 @@ function getPopUp(index) {
                         <div>
                             <form action='../php/editUser.php' method='post' enctype='multipart/form-data'>
                                 <div>
-                                    <input type='text' name='username'>
+                                    <input class='input' type='text' name='username'>
                                     <p>Username</p>
                                 </div>
-                                <input class='button' type='submit' value='Continue' name='submit'>
+                                <input class='input button' type='submit' value='Continue' name='submit'>
                             </form>
                         </div>
                     </div>

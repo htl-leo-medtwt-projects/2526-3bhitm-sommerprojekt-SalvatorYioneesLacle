@@ -21,12 +21,12 @@ function initPage() {
                             <form action='../php/upload-file.php' method='post' enctype='multipart/form-data'>
                                 <p>Select audio file to upload</p>
                                 <div>
-                                    <input type='text' name='filename' id='filename'>
+                                    <input class='input' type='text' name='filename' id='filename'>
                                     <p>File name</p>
                                 </div>
                                 <div>
                                     <div id='upload-btn-box'>
-                                        <input type='file' name='fileToUpload' id='fileToUpload'>
+                                        <input class='input' type='file' name='fileToUpload' id='fileToUpload'>
                                         <label for='fileToUpload' class='custom-file-upload'>
                                             <i class='fas fa-upload mr-2'>
                                                 <img class='upload-icon' src='../images/icons/dark/upload.svg' alt='upload-image'>
@@ -36,7 +36,7 @@ function initPage() {
                                         <span id='file-name' class='file-name'>No file selected</span>
                                     </div>
                                 </div>
-                                <input class='button' type='submit' value='Upload' name='submit'>
+                                <input class='input button' type='submit' value='Upload' name='submit'>
                             </form>
                         </div>
                     </div>
