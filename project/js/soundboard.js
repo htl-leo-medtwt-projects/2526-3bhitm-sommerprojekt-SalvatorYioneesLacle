@@ -8,6 +8,8 @@ function editVolume(value) {
 
 function playSound(path) {
     let sound = new Audio(path);
+    volume = document.getElementById('volume-slider').value / 200;
+    console.log(volume);
     audioStuff1(sound)
     sound.volume = volume;
     sound.play();
@@ -59,25 +61,25 @@ async function audioStuff(sound) {
     // });
 
     // const stream = await navigator.mediaDevices.getUserMedia({ audio: true, video: false });
-    const stream = HTMLMediaElement.audioTracks;
-    const audioContext = new AudioContext();
+    // const stream = HTMLMediaElement.audioTracks;
+    // const audioContext = new AudioContext();
 
-    const audioElement = sound;
+    // const audioElement = sound;
 
-    const mediaStreamAudioSourceNode = audioContext.createMediaStreamSource(stream);
-    const analyserNode = audioContext.createAnalyser();
-    mediaStreamAudioSourceNode.connect(analyserNode);
+    // const mediaStreamAudioSourceNode = audioContext.createMediaStreamSource(stream);
+    // const analyserNode = audioContext.createAnalyser();
+    // mediaStreamAudioSourceNode.connect(analyserNode);
 
-    const pcmData = new Float32Array(analyserNode.fftSize);
-    const onFrame = () => {
-        analyserNode.getFloatTimeDomainData(pcmData);
-        let sumSquares = 0.0;
-        for (const amplitude of pcmData) { sumSquares += amplitude * amplitude; }
-        volumeMeterEl.value = Math.sqrt(sumSquares / pcmData.length);
-        window.requestAnimationFrame(onFrame);
-    };
-    window.requestAnimationFrame(onFrame);
-    console.log(sumSquares);
+    // const pcmData = new Float32Array(analyserNode.fftSize);
+    // const onFrame = () => {
+    //     analyserNode.getFloatTimeDomainData(pcmData);
+    //     let sumSquares = 0.0;
+    //     for (const amplitude of pcmData) { sumSquares += amplitude * amplitude; }
+    //     volumeMeterEl.value = Math.sqrt(sumSquares / pcmData.length);
+    //     window.requestAnimationFrame(onFrame);
+    // };
+    // window.requestAnimationFrame(onFrame);
+    // console.log(sumSquares);
 }
 
 function audioStuff1(sound) {
@@ -85,10 +87,12 @@ function audioStuff1(sound) {
 
     var audioCtx = new AudioContext();
     var audio = sound; // Abgeändert --> Mikrofonzugriff im Original
-    var processor = audioCtx.createScriptProcessor(256, 1, 1);
+    var processor = audioCtx.createScriptProcessor(512);
     var meter = document.getElementById('meter');
     var source;
     let prevRms = 0;
+
+    // var audioWorklet = new AudioWorkletNode(audioCtx, );
 
     audio.addEventListener('canplaythrough', function () {
         source = audioCtx.createMediaElementSource(audio);
@@ -107,16 +111,34 @@ function audioStuff1(sound) {
             , rms;
         while (i < len) total += Math.abs(input[i++]);
         rms = Math.sqrt(total / len);
-        // console.log((rms * 100 - 60));
-        // if (rms - prevRms < 1) {
-            document.getElementsByClassName('volume-bar').item(0).value = rms * 100 - 60;
-        // }
+
+        // Prevent sudden value assigment to -60
+        if (prevRms - rms != 0) {
+            // value = rms * 100 - 60;
+            // console.log(prevRms);
+            // console.log(rms);
+
+            // Smoothen sound meter values
+            prt = (rms - prevRms) / 16;
+            for (let j = 0; j < 16; j++) {
+                document.getElementsByClassName('sound-meter').item(0).value = (prevRms + prt * j) * 100 - 60;
+            }
+        }
+        // Save current rms for next loop
         prevRms = rms;
     };
+
+    audio.addEventListener("ended", () => {
+        // console.log(value);
+        document.getElementsByClassName('sound-meter').item(0).value = -999;
+    }, true);
 }
 audioStuff1(new Audio('../uploads/14/2.mp3'));
 
-// JS to update visual display of current value
-document.querySelectorAll("input[type=range]").forEach(r => {
-  r.addEventListener("input", (e) => r.nextElementSibling.textContent = e.target.value)
-})
+function volumeStuff() {
+    // JS to update visual display of current value
+    document.querySelectorAll("input[type=range]").forEach(r => {
+        r.addEventListener("input", (e) => r.nextElementSibling.textContent = e.target.value)
+    })
+}
+volumeStuff();

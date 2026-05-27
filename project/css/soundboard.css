@@ -46,7 +46,7 @@
     transform: scale(.92);
 }
 
-.volume-bar-box {
+.sound-meter-box {
     position: absolute;
     bottom: 22em;
     right: 2em;
@@ -54,12 +54,13 @@
     transform: rotateZ(-90deg);
 }
 
-.volume-bar {
+.sound-meter {
+    /* transition: 2s cubic-bezier(0.455, 0.03, 0.515, 0.955) all; */
 }
 
 /* Sound meter */
 /* https://freefrontend.com/css-range-sliders/ - CSS-only Sound Meter */
-[type="range"].volume-bar {
+[type="range"].sound-meter {
     font-size: 1em;
     width: 20em;
     border: 0.25em solid #000;
@@ -93,7 +94,7 @@
     }
 }
 
-[type="range"].volume-bar::-webkit-slider-thumb {
+[type="range"].sound-meter::-webkit-slider-thumb {
     appearance: none;
     width: 1em;
     height: 3.6em;
@@ -107,10 +108,9 @@
         1em 0, 2em 0, 3em 0, 4em 0, 5em 0, 6em 0, 7em 0,
         8em 0, 9em 0, 10em 0, 11em 0, 12em 0, 13em 0,
         14em 0, 15em 0, 16em 0, 17em 0, 18em 0, 19em 0;
-    transition: 2s ease all;
 }
 
-[type="range"].volume-bar::-moz-range-thumb {
+[type="range"].sound-meter::-moz-range-thumb {
     appearance: none;
     width: 1em;
     height: 3.6em;
@@ -124,15 +124,14 @@
         1em 0, 2em 0, 3em 0, 4em 0, 5em 0, 6em 0, 7em 0,
         8em 0, 9em 0, 10em 0, 11em 0, 12em 0, 13em 0,
         14em 0, 15em 0, 16em 0, 17em 0, 18em 0, 19em 0;
-    transition: .2s ease all;
 }
 
 @media (prefers-reduced-motion) {
-    [type="range"].volume-bar::-webkit-slider-thumb {
+    [type="range"].sound-meter::-webkit-slider-thumb {
         animation: none;
     }
 
-    [type="range"].volume-bar::-moz-range-thumb {
+    [type="range"].sound-meter::-moz-range-thumb {
         animation: none;
     }
 }
@@ -141,7 +140,7 @@
 .range-slider{
   --range-width: 20em;
   --track-clr: rgb(63, 63, 70);
-  --track-clr-active: rgb(4, 82, 121);
+  --track-clr-active: var(--highlight);
 
   --thumb-w: 10px;
   --thumb-h: 60px;
@@ -161,7 +160,7 @@
   clip-path: polygon(0 45%, 100% 0, 100% 100%, 0 55%);
 }
 .range-slider > [data-value]{
-  font-size: .8rem;
+  font-size: 1.1rem;
   width: 4em;
   color: white;
   opacity: .7;
