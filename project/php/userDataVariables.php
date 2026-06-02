@@ -20,7 +20,7 @@ if (isset($_SESSION) && isset($_SESSION["user"]) && isset($_SESSION["login"]) &&
     if (isset($_SESSION["user"]["profile_picture"])) {
         $pfpPath = htmlspecialchars($_SESSION["user"]["profile_picture"], ENT_QUOTES, 'UTF-8');
         // resizePfp();
-        resizePfp2();
+        // resizePfp2();
     }
 }
 

@@ -16,18 +16,18 @@ $errors;
 $username = $_SESSION['user']['username'];
 $userId = $_SESSION['user']['id'];
 
-$target_dir = "../uploads/$userId/";
+$target_dir = "uploads/$userId/";
 $target_file = $target_dir . basename($_FILES['fileToUpload']['name']);
 
 $uploadOk = 1;
 
 // https://stackoverflow.com/questions/2303372/create-a-folder-if-it-doesnt-already-exist
-if (!file_exists("../uploads/$userId/")) {
-    mkdir("../uploads/$userId/", 0777, true);
+if (!file_exists("../" . $target_dir)) {
+    mkdir("../" . $target_dir, 0777, true);
 }
 
 // Check if file already exists
-if (file_exists($target_file)) {
+if (file_exists("../" . $target_file)) {
     // echo "Sorry, file already exists.";
     $uploadOk = 0;
     // header('Location: ../pages/customiseUser.php');
@@ -40,7 +40,7 @@ if ($_FILES["fileToUpload"]["size"] > 1000000) {
     // header('Location: ../pages/customiseUser.php');
 }
 
-$fileType = pathinfo($target_file, PATHINFO_EXTENSION);
+$fileType = pathinfo("../" . $target_file, PATHINFO_EXTENSION);
 if (isset($_POST['submit'])) {
     $check = getimagesize($_FILES['fileToUpload']['tmp_name']);
     if ($check !== false) {
@@ -63,7 +63,7 @@ if ($uploadOk == 0) {
     // header('Location: ../pages/customiseUser.php');
 } else {
     // 1. Upload file
-    if (move_uploaded_file($_FILES['fileToUpload']['tmp_name'], $target_file)) {
+    if (move_uploaded_file($_FILES['fileToUpload']['tmp_name'], "../" . $target_file)) {
         // echo "The file " . basename($_FILES['fileToUpload']['name']) . " has been uploaded.";
 
         // 2. Rename file
@@ -81,8 +81,8 @@ if ($uploadOk == 0) {
         $tempPfp = $res->fetch_assoc()["profile_picture"];
 
         // Delete old pfp
-        if ($res->num_rows === 1 && str_contains($tempPfp, $target_dir) && file_exists($tempPfp)) {
-            unlink($tempPfp);
+        if ($res->num_rows === 1 && str_contains("../" . $tempPfp, "../" . $target_dir) && file_exists("../" . $tempPfp)) {
+            unlink("../" . $tempPfp);
         }
 
         // 3. Add to database
