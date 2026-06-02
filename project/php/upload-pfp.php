@@ -5,8 +5,9 @@ if (session_status() === PHP_SESSION_NONE) {
 require_once 'database.php';
 require_once 'userDataVariables.php';
 
-if (!is_array($_SESSION) || !isset($_SESSION['user']) || $_SESSION['user'] == ''
+if (!is_array($_SESSION) || !isset($_SESSION['user'])
     || $_SESSION['login'] == 0 || !isset($_POST['submit']) || !isset($_FILES['fileToUpload']) || $_FILES['fileToUpload']['tmp_name'] == '') {
+    // var_dump($_FILES['fileToUpload']);
     header('Location: ../pages/account.php');
     exit;
 }
@@ -34,7 +35,7 @@ if (file_exists("../" . $target_file)) {
 }
 
 // Check file size
-if ($_FILES["fileToUpload"]["size"] > 1000000) {
+if ($_FILES["fileToUpload"]["size"] > 10_000_000) {
     // echo "Sorry, your file is too large.";
     $uploadOk = 0;
     // header('Location: ../pages/customiseUser.php');

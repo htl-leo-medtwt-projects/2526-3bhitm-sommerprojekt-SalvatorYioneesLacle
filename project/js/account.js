@@ -29,7 +29,7 @@ function getPopUp(index) {
                 <div class='form-box'>
                     <div class='form-box-child'>
                         <div>
-                            <form action='../php/upload-pfp.php' method='post' enctype='multipart/form-data'>
+                            <form action='../php/editUser.php' method='post' enctype='multipart/form-data'>
                                 <div>
                                     <input class='input' type='text' name='username'>
                                     <p>Username</p>

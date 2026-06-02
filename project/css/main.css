@@ -324,6 +324,7 @@ nav a {
     position: absolute;
     top: calc(50% - 35vh + var(--navHeight));
     left: calc(50% - 35vw);
+    z-index: 99;
 }
 
 .popup {
