@@ -6,13 +6,34 @@ function editVolume(value) {
     }
 }
 
-function playSound(path) {
+function playSound(path, id) {
     let sound = new Audio(path);
     volume = document.getElementById('volume-slider').value / 200;
-    console.log(volume);
-    audioStuff1(sound)
     sound.volume = volume;
+
+    let numId = Number.parseInt(id);
+    lightBtn(numId);
+    // console.log(id, numId);
+    // dimBtn(numId);
+
+    audioStuff1(sound, numId);
+    
     sound.play();
+}
+
+function lightBtn(id) {
+    let numId = Number.parseInt(id);
+    document.getElementsByClassName('soundboard-icon').item(numId).style.backgroundColor = 'var(--highlight)';
+}
+
+function dimBtn(id) {
+    let numId = Number.parseInt(id);
+    document.getElementsByClassName('soundboard-icon').item(numId).style.backgroundColor = '#8d34b971';
+}
+
+function turnOffBtn(id) {
+    let numId = Number.parseInt(id);
+    document.getElementsByClassName('soundboard-icon').item(numId).style.backgroundColor = 'var(--white20)';
 }
 
 async function audioStuff(sound) {
@@ -82,7 +103,7 @@ async function audioStuff(sound) {
     // console.log(sumSquares);
 }
 
-function audioStuff1(sound) {
+function audioStuff1(sound, id) {
     // https://stackoverflow.com/questions/28123525/how-do-you-get-the-decibel-level-of-an-audio-in-javascript
 
     var audioCtx = new AudioContext();
@@ -92,7 +113,7 @@ function audioStuff1(sound) {
     var source;
     let prevRms = 0;
 
-    // var audioWorklet = new AudioWorkletNode(audioCtx, );
+    // var audioWorklet = new AudioWorkletNode(audioCtx, ); 
 
     audio.addEventListener('canplaythrough', function () {
         source = audioCtx.createMediaElementSource(audio);
@@ -131,9 +152,9 @@ function audioStuff1(sound) {
     audio.addEventListener("ended", () => {
         // console.log(value);
         document.getElementsByClassName('sound-meter').item(0).value = -999;
+        turnOffBtn(id);
     }, true);
 }
-audioStuff1(new Audio('../uploads/14/2.mp3'));
 
 function volumeStuff() {
     // JS to update visual display of current value

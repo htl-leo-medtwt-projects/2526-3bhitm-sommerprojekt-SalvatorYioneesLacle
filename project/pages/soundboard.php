@@ -30,8 +30,10 @@ function generateButtons() {
     global $soundPath;
     $str = '';
 
-    for ($i = 0; $i < count($soundPath); $i++) {
-        $str .= "<img class='buttons-icon' src='../images/soundboard/soundboard_button_alpha_v5.svg' alt='soundboard button $i' onmousedown=\"playSound('$soundPath[$i]')\">\n";
+    for ($i = 0; $i < count($soundPath); $i++) { //  
+        $str .= "<div class='soundboard-btn'>
+                    <img class='soundboard-icon' src='../images/soundboard/soundboard_button_alpha_v5.svg' alt='soundboard button $i' onmousedown=\"playSound('$soundPath[$i]', '$i')\" onmouseup=\"dimBtn('$i')\">
+                </div>\n";
     }
 
     return $str;

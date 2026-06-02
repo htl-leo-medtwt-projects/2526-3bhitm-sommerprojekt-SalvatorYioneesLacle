@@ -31,14 +31,6 @@ if (isset($_POST["submit"])) {
         $insertStatement = "INSERT INTO users (username, profile_picture, password_hash, signup_date, last_login, user_deleted)
                         VALUES ('$_username', '../images/icons/light/User.svg', '$_passwordHash',  NOW(), NOW(), 0);";
 
-        // $insertStatement = $conn->prepare(
-        //     "INSERT INTO users (username, profile_picture, password_hash, signup_date, last_login, user_deleted)
-        //     VALUES (?, '../images/icons/light/User.svg', ?, NOW(), NOW(), 0);"
-        // );
-        // $insertStatement->bind_param("ss", $_username, $_passwordHash);
-        // $insertStatement->execute();
-        // $resUser = $insertStatement->get_result();
-
         if ($_res = $conn->query($insertStatement)) {
             // Search for user to get user data
             $stmt = $conn->prepare(

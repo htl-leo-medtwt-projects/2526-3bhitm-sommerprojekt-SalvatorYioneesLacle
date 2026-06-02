@@ -71,6 +71,20 @@ if ($uploadOk == 0) {
         // rename($target_file, $new_target_file);
         // $target_file = $new_target_file;
 
+        $selectStmt = $conn->prepare(
+            "SELECT profile_picture FROM users WHERE id = ?;"
+        );
+        $selectStmt->bind_param("i", $userId);
+        $selectStmt->execute();
+
+        $res = $selectStmt->get_result();
+        $tempPfp = $res->fetch_assoc()["profile_picture"];
+
+        // Delete old pfp
+        if ($res->num_rows === 1 && str_contains($tempPfp, $target_dir) && file_exists($tempPfp)) {
+            unlink($tempPfp);
+        }
+
         // 3. Add to database
         $updateStatement = $conn->prepare(
             "UPDATE users SET profile_picture = ? WHERE id = ?;"
