@@ -29,7 +29,7 @@ if (isset($_POST["submit"])) {
         header("Location: ../pages/signup.php");
     } else {
         $insertStatement = "INSERT INTO users (username, profile_picture, password_hash, signup_date, last_login, user_deleted)
-                        VALUES ('$_username', '../images/icons/light/User.svg', '$_passwordHash',  NOW(), NOW(), 0);";
+                        VALUES ('$_username', 'images/icons/light/User.svg', '$_passwordHash',  NOW(), NOW(), 0);";
 
         if ($_res = $conn->query($insertStatement)) {
             // Search for user to get user data
