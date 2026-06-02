@@ -6,8 +6,8 @@ require_once 'database.php';
 require_once 'userDataVariables.php';
 
 if (!is_array($_SESSION) || !isset($_SESSION['user']) || $_SESSION['user'] == ''
-    || $_SESSION['login'] == 0 || !isset($_POST['submit']) || !isset($_FILES['fileToUpload'])) {
-    // header('Location: ../pages/customiseUser.php');
+    || $_SESSION['login'] == 0 || !isset($_POST['submit']) || !isset($_FILES['fileToUpload']) || $_FILES['fileToUpload']['tmp_name'] == '') {
+    header('Location: ../pages/account.php');
     exit;
 }
 
