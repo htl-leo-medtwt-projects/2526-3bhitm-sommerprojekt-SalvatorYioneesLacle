@@ -9,7 +9,29 @@
 .soundboard {
     max-width: 70em;
     position: relative;
-    overflow: hidden;
+    overflow: scroll;
+    /* overflow: hidden; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+}
+
+.soundboard::-webkit-scrollbar {
+    width: 0;
+}
+
+.soundboard::-webkit-scrollbar-thumb {
+    width: 0;
+}
+
+.soundboard {
+    scrollbar-width: 0;
+}
+
+.soundboard-pages {
+    min-width: 100%;
+    height: max-content;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -53,6 +75,30 @@
 .sound-meter {
     /* transition: 2s cubic-bezier(0.455, 0.03, 0.515, 0.955) all; */
 }
+
+.page-btns-box {
+    width: 10em;
+    position: absolute;
+    left: calc(50% - 5em);
+    bottom: 2em;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    /* gap: 1em; */
+}
+
+.page-btns-box>div {
+    width: 3em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.page-btns-box img {
+    width: 100%;
+    cursor: pointer;
+}
+
 
 /* Sound meter */
 /* https://freefrontend.com/css-range-sliders/ - CSS-only Sound Meter */
@@ -133,117 +179,121 @@
 }
 
 /* Volume slider */
-.range-slider{
-  --range-width: 20em;
-  --track-clr: rgb(63, 63, 70);
-  --track-clr-active: #7e36a181;
+.range-slider {
+    --range-width: 20em;
+    --track-clr: rgb(63, 63, 70);
+    --track-clr-active: #7e36a181;
 
-  --thumb-w: 10px;
-  --thumb-h: 60px;
-  --thumb-radius: 0;
-  --thumb-space: 20px;
-  --thumb-clr: var(--highlight);
-  --thumb-clr-active: var(--highlight);
-  --thumb-scale-y-active: .75;
+    --thumb-w: 10px;
+    --thumb-h: 60px;
+    --thumb-radius: 0;
+    --thumb-space: 20px;
+    --thumb-clr: var(--highlight);
+    --thumb-clr-active: var(--highlight);
+    --thumb-scale-y-active: .75;
 
-  
-  position: absolute;
-  bottom: 2em;
-  left: 2em;
-  display: flex;
-  align-items: center;
-  gap: .5rem;
-  clip-path: polygon(0 45%, 100% 0, 100% 100%, 0 55%);
+
+    position: absolute;
+    bottom: 2em;
+    left: 2em;
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    clip-path: polygon(0 45%, 100% 0, 100% 100%, 0 55%);
 }
-.range-slider > [data-value]{
-  font-size: 1.1rem;
-  width: 4em;
-  color: white;
-  opacity: .7;
+
+.range-slider>[data-value] {
+    font-size: 1.1rem;
+    width: 4em;
+    color: white;
+    opacity: .7;
 }
-.range-slider > input[type="range"] {
-  width: var(--range-width);
-  height: var(--thumb-h); 
-  -webkit-appearance :none;
-  -moz-appearance :none;
-  appearance: none;
-  background: none;
-  cursor: pointer;
-  overflow: hidden;
-  outline: none;
-  border: none;
+
+.range-slider>input[type="range"] {
+    width: var(--range-width);
+    height: var(--thumb-h);
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background: none;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+    border: none;
 }
 
 /* chromium */
-.range-slider > input[type="range"]::-webkit-slider-thumb{
-  cursor: grab;
-  width: var(--thumb-w);
-  height: var(--thumb-h);
-  background: var(--thumb-clr);
-  outline: none;
-  border: none;
-  border-radius: var(--thumb-radius);
-  /* track  - either side of the thumb using box-shadow */
-  box-shadow:
-    calc((var(--range-width) / 2 + var(--thumb-space)) * -1 ) 0 0 calc(var(--range-width) / 2) var(--track-clr-active),
-    calc((var(--range-width) / 2 + var(--thumb-space))) 0 0 calc(var(--range-width) / 2) var(--track-clr);
+.range-slider>input[type="range"]::-webkit-slider-thumb {
+    cursor: grab;
+    width: var(--thumb-w);
+    height: var(--thumb-h);
+    background: var(--thumb-clr);
+    outline: none;
+    border: none;
+    border-radius: var(--thumb-radius);
+    /* track  - either side of the thumb using box-shadow */
+    box-shadow:
+        calc((var(--range-width) / 2 + var(--thumb-space)) * -1) 0 0 calc(var(--range-width) / 2) var(--track-clr-active),
+        calc((var(--range-width) / 2 + var(--thumb-space))) 0 0 calc(var(--range-width) / 2) var(--track-clr);
 
-  -webkit-appearance: none;
-  appearance: none;
-  transition-property: scale,box-shadow,background-color;
-  transition-duration: 300ms;
-  transition-timing-function: ease-in-out;
-  scale: 1 var(--thumb-scale-y,1);
+    -webkit-appearance: none;
+    appearance: none;
+    transition-property: scale, box-shadow, background-color;
+    transition-duration: 300ms;
+    transition-timing-function: ease-in-out;
+    scale: 1 var(--thumb-scale-y, 1);
 }
+
 /* Firefox */
-.range-slider > input[type="range"]::-moz-range-thumb {
-  cursor: grab;
-  width: var(--thumb-w);
-  height: var(--thumb-h);
-  background-color: var(--thumb-clr);
+.range-slider>input[type="range"]::-moz-range-thumb {
+    cursor: grab;
+    width: var(--thumb-w);
+    height: var(--thumb-h);
+    background-color: var(--thumb-clr);
 
-  outline: none;
-  border: none;
-  border-radius: var(--thumb-radius);
-  /* track  - either side of the thumb using box-shadow */
-  box-shadow:
-    calc((var(--range-width) / 2 + var(--thumb-space)) * -1 ) 0 0 calc(var(--range-width) / 2) var(--track-clr-active),
-    calc((var(--range-width) / 2 + var(--thumb-space))) 0 0 calc(var(--range-width) / 2) var(--track-clr);
+    outline: none;
+    border: none;
+    border-radius: var(--thumb-radius);
+    /* track  - either side of the thumb using box-shadow */
+    box-shadow:
+        calc((var(--range-width) / 2 + var(--thumb-space)) * -1) 0 0 calc(var(--range-width) / 2) var(--track-clr-active),
+        calc((var(--range-width) / 2 + var(--thumb-space))) 0 0 calc(var(--range-width) / 2) var(--track-clr);
 
-    
-  -moz-appearance: none;
-  appearance: none;
-  transition-property: scale,box-shadow,background-color;
-  transition-duration: 300ms;
-  transition-timing-function: ease-in-out;
-  scale: 1 var(--thumb-scale-y,1);
+
+    -moz-appearance: none;
+    appearance: none;
+    transition-property: scale, box-shadow, background-color;
+    transition-duration: 300ms;
+    transition-timing-function: ease-in-out;
+    scale: 1 var(--thumb-scale-y, 1);
 }
 
-.range-slider > input[type="range"]:focus-within,
-.range-slider > input[type="range"]:hover{
-  --thumb-clr: var(--thumb-clr-active);
+.range-slider>input[type="range"]:focus-within,
+.range-slider>input[type="range"]:hover {
+    --thumb-clr: var(--thumb-clr-active);
 
 }
-.range-slider:has(input[type="range"]:focus-visible){
-  outline: 1px dashed white;
-  outline-offset: 4px;
+
+.range-slider:has(input[type="range"]:focus-visible) {
+    outline: 1px dashed white;
+    outline-offset: 4px;
 }
 
 
 /* general styling */
 :root {
-  --clr-bg: #222;
-  --clr-primary: #f5f5f5;
-  --clr-secondary: #075985;
+    --clr-bg: #222;
+    --clr-primary: #f5f5f5;
+    --clr-secondary: #075985;
 }
 
 body {
-  /* min-height: 100svh; */
-  /* display: flex;
+    /* min-height: 100svh; */
+    /* display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center; */
-  /* gap: 1.5rem;
+    /* gap: 1.5rem;
   font-size: clamp(0.9rem, 2.5vw,1.4rem);
   color: var(--clr-primary);
   padding: 1rem;
@@ -252,37 +302,43 @@ body {
   background-size: 40px 40px;
   background-attachment:fixed; */
 }
+
 button,
 input,
 optgroup,
 select,
 textarea {
-  /* font-family: inherit;
+    /* font-family: inherit;
   font-size: 100%;
   line-height: 1.15; 
   margin: 0; */
 }
+
 h1 {
-  /* font-size: clamp(1rem, 2.5vw + 0.25rem, 1.2rem);
+    /* font-size: clamp(1rem, 2.5vw + 0.25rem, 1.2rem);
   font-weight: 500;
   line-height: 1.6; */
 }
+
 code,
 pre {
-  /* display: inline-block;
+    /* display: inline-block;
   color: #38bdf8;
   border: 1px solid hsl(from var(--clr-primary) h s 50% / 0.5);
   padding: 0.5rem 1rem;
   border-radius: 5px; */
 }
+
 pre {
-  /* white-space: pre-wrap; */
+    /* white-space: pre-wrap; */
 }
+
 em {
-  /* font-size: 0.8rem; */
+    /* font-size: 0.8rem; */
 }
+
 body::after {
-  /* content: "";
+    /* content: "";
   position: fixed;
   top: 1rem;
   left: 1rem;

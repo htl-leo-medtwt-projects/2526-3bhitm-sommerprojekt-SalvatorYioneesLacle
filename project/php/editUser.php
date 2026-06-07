@@ -8,7 +8,7 @@ if (is_array($_SESSION) && isset($_SESSION['user']) && $_SESSION['login'] == 1 &
         include 'upload-pfp.php';
     }
     if (isset($_POST['username'])) {
-        // include 'upload-pfp.php';
+        include 'editUsername.php';
     }
 }
 

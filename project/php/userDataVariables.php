@@ -3,6 +3,7 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 require_once 'database.php';
+include_once 'msgSystem.php';
 
 if (isset($_SESSION) && isset($_SESSION["user"]) && isset($_SESSION["login"]) && $_SESSION["login"] == 1) {
     if (isset($_SESSION["user"]["id"])) {
@@ -22,6 +23,10 @@ if (isset($_SESSION) && isset($_SESSION["user"]) && isset($_SESSION["login"]) &&
         // resizePfp();
         // resizePfp2();
     }
+}
+
+if (!empty($errors)) {
+    displayMessage();
 }
 
 function showError($errorArray) {

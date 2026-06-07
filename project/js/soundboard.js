@@ -1,4 +1,29 @@
 let volume = 0.1;
+let page = 0;
+let maxPages = 1;
+
+function initMaxPages(value) {
+
+}
+
+function toPrevPage() {
+    if (page > 0) {
+        page--;
+        changePage();
+    }
+}
+
+function toNextPage() {
+    if (page + 1 < 4) {
+        page++;
+        changePage();
+    }
+}
+
+function changePage() {
+    let newPos = -70 * page;
+    document.querySelector('.soundboard').style.translate = newPos + 'em';
+}
 
 function editVolume(value) {
     if (value >= 0 && value <= 100) {
@@ -16,8 +41,8 @@ function playSound(path, id) {
     // console.log(id, numId);
     // dimBtn(numId);
 
-    audioStuff1(sound, numId);
-    
+    updateSoundMeterValue(sound, numId);
+
     sound.play();
 }
 
@@ -36,74 +61,7 @@ function turnOffBtn(id) {
     document.getElementsByClassName('soundboard-icon').item(numId).style.backgroundColor = 'var(--white20)';
 }
 
-async function audioStuff(sound) {
-    // const audioContext = new AudioContext();
-
-    // // get the audio element
-    // const audioElement = document.querySelector(".buttons-icon");
-    // console.log(audioElement);
-
-    // // pass it into the audio context
-    // const track = audioContext.createMediaElementSource(audioElement);
-
-    // track.connect(audioContext.destination);
-
-    // // Select our play button
-    // const playButton = document.querySelector("button");
-
-    // playButton.addEventListener("click", () => {
-    //   // Check if context is in suspended state (autoplay policy)
-    //   if (audioContext.state === "suspended") {
-    //     audioContext.resume();
-    //   }
-
-    //   // Play or pause track depending on state
-    //   if (playButton.dataset.playing === "false") {
-    //     audioElement.play();
-    //     playButton.dataset.playing = "true";
-    //   } else if (playButton.dataset.playing === "true") {
-    //     audioElement.pause();
-    //     playButton.dataset.playing = "false";
-    //   }
-    // });
-
-    // audioElement.addEventListener("ended", () => {
-    //   playButton.dataset.playing = "false";
-    // });
-
-    // const gainNode = audioContext.createGain();
-
-    // track.connect(gainNode).connect(audioContext.destination);
-
-    // const volumeControl = document.querySelector("#volume");
-
-    // volumeControl.addEventListener("input", () => {
-    //   gainNode.gain.value = volumeControl.value;
-    // });
-
-    // const stream = await navigator.mediaDevices.getUserMedia({ audio: true, video: false });
-    // const stream = HTMLMediaElement.audioTracks;
-    // const audioContext = new AudioContext();
-
-    // const audioElement = sound;
-
-    // const mediaStreamAudioSourceNode = audioContext.createMediaStreamSource(stream);
-    // const analyserNode = audioContext.createAnalyser();
-    // mediaStreamAudioSourceNode.connect(analyserNode);
-
-    // const pcmData = new Float32Array(analyserNode.fftSize);
-    // const onFrame = () => {
-    //     analyserNode.getFloatTimeDomainData(pcmData);
-    //     let sumSquares = 0.0;
-    //     for (const amplitude of pcmData) { sumSquares += amplitude * amplitude; }
-    //     volumeMeterEl.value = Math.sqrt(sumSquares / pcmData.length);
-    //     window.requestAnimationFrame(onFrame);
-    // };
-    // window.requestAnimationFrame(onFrame);
-    // console.log(sumSquares);
-}
-
-function audioStuff1(sound, id) {
+function updateSoundMeterValue(sound, id) {
     // https://stackoverflow.com/questions/28123525/how-do-you-get-the-decibel-level-of-an-audio-in-javascript
 
     var audioCtx = new AudioContext();
@@ -156,10 +114,10 @@ function audioStuff1(sound, id) {
     }, true);
 }
 
-function volumeStuff() {
+function updateVolumeValue() {
     // JS to update visual display of current value
     document.querySelectorAll("input[type=range]").forEach(r => {
         r.addEventListener("input", (e) => r.nextElementSibling.textContent = e.target.value)
     })
 }
-volumeStuff();
+updateVolumeValue();
