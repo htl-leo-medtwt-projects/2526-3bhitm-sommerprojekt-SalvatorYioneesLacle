@@ -117,23 +117,23 @@ function initUserSignedIn() {
 
 function generateSoundboard() {
     global $soundPath, $needsNewPage;
-    
+
     // Max 50 buttons per page
     $maxBtns = 50;
     $countBtns = count($soundPath);
     $pages = ceil($countBtns / $maxBtns);
-    
+
     $str = "<div class='soundboard' >";
 
     // Init page buttons for soundboard
-    if (/*$countBtns > $maxBtns*/ true) {
-        $needsNewPage = true;
-    }
+    // if (/*$countBtns > $maxBtns*/ true) {
+    //     $needsNewPage = true;
+    // }
 
     // Split buttons into seperate pages to scroll to
     for ($j = 0; $j < $pages; $j++) {
         $str .= "<div class='soundboard-pages' id='page-$j'>";
-        for ($i = 0; $i < min($countBtns - $maxBtns * $j, $maxBtns); $i++) { //  
+        for ($i = 0; $i < min($countBtns - $maxBtns * $j, $maxBtns); $i++) {  
             $str .= "<div class='soundboard-btn'>
                         <img class='soundboard-icon' src='../images/soundboard/soundboard_button_alpha_v5.svg' alt='soundboard button $i' onmousedown=\"playSound('$soundPath[$i]', '$i')\" onmouseup=\"dimBtn('$i')\">
                     </div>\n";
@@ -143,6 +143,7 @@ function generateSoundboard() {
             //         </div>\n";
         }
         $str .= "</div>";
+        $pages++;
     }
     $str .= '</div>';
 

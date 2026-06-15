@@ -5,6 +5,11 @@ if (session_status() === PHP_SESSION_NONE) {
 require_once "database.php";
 
 if (isset($_POST["submit"]) && isset($_SESSION['user']) && $_SESSION['login'] == 1) {
+    if ($_POST["username"] == '') {
+        header("Location: ../pages/account.php");
+        exit;
+    }
+
     $user = $_SESSION['user'];
     $id = $user['id'];
     $_username = $conn->real_escape_string($_POST["username"]);

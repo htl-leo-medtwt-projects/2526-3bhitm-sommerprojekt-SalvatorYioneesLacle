@@ -36,6 +36,16 @@ function initPage() {
                                         <span id='file-name' class='file-name'>No file selected</span>
                                     </div>
                                 </div>
+                                <div id='form-public'>
+                                    <p>Public</p>
+                                    <!--<input class='input' type='checkbox' name='public' id='public'>-->
+
+                                    <label class='chkbox-container'>
+                                        <p class='chkbox-p' id='public-label'>No</p>
+                                        <input type='checkbox' class='input' name='public' id='public' onclick=\"setPublic()\">
+                                        <span class='checkmark'></span>
+                                    </label>
+                                </div>
                                 <input class='input button' type='submit' value='Upload' name='submit'>
                             </form>
                         </div>

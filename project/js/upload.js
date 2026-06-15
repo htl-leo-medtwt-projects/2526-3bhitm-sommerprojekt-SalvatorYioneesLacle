@@ -9,3 +9,11 @@ fileUpload.addEventListener('change', (e) => {
         fileName.textContent = 'No file selected';
     }
 });
+
+function setPublic(elem) {
+    if (document.querySelector('#public').checked) {
+        document.querySelector('#public-label').innerHTML = 'Yes'
+    } else {
+        document.querySelector('#public-label').innerHTML = 'No'
+    }
+}

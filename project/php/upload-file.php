@@ -22,6 +22,8 @@ $target_file = $target_dir . basename($_FILES['fileToUpload']['name']);
 $file_name = trim($_POST['filename']) != null || '' ? basename(trim($_POST['filename'])) : basename(explode('.', $_FILES['fileToUpload']['name'])[0]); // Fix this --> 
 $file_name_short = substr($file_name, 0, 3);
 
+$public = $_POST['public'] == NULL ? 0 : 1;
+
 $uploadOk = 1;
 
 // https://stackoverflow.com/questions/2303372/create-a-folder-if-it-doesnt-already-exist
@@ -79,7 +81,7 @@ if ($uploadOk == 0) {
         $target_file = $target_dir . $file_name . ".$fileType";
 
         // 3. Add to database
-        $insertStatement = "INSERT INTO sounds (name, short_name, path, user_id) VALUES ('$file_name', '$file_name_short', '$target_file', '$userId');";
+        $insertStatement = "INSERT INTO sounds (name, short_name, path, user_id, public) VALUES ('$file_name', '$file_name_short', '$target_file', '$userId', $public);";
         if ($_res = $conn->query($insertStatement)) {
             // echo "<br>Image $target_file has been added to the datebase.";
         } else {
