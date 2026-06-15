@@ -22,7 +22,7 @@ $target_file = $target_dir . basename($_FILES['fileToUpload']['name']);
 $file_name = trim($_POST['filename']) != null || '' ? basename(trim($_POST['filename'])) : basename(explode('.', $_FILES['fileToUpload']['name'])[0]); // Fix this --> 
 $file_name_short = substr($file_name, 0, 3);
 
-$public = $_POST['public'] == NULL ? 0 : 1;
+$public = !isset($_POST['public']) || $_POST['public'] == NULL ? 0 : 1;
 
 $uploadOk = 1;
 

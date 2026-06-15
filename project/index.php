@@ -27,7 +27,7 @@ function initNav() {
     $str = "
         <div id='nav-btn-box'>
             <div class='nav-left'>
-                <a href='./index.php' class='nav-btn' onpointerenter='navBtnAnimation(this)'>
+                <a href='./index.php' class='nav-btn'>
                     <img src='../images/icons/light/Home.svg' alt='home button'>
                 </a>
                 <a href='./pages/upload-sound.php' class='nav-btn'>

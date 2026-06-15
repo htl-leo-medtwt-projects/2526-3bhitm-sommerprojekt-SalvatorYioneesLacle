@@ -185,10 +185,10 @@
     --track-clr-active: #7e36a181;
 
     --thumb-w: 10px;
-    --thumb-h: 60px;
-    --thumb-radius: 0;
-    --thumb-space: 20px;
-    --thumb-clr: var(--highlight);
+    --thumb-h: 15px;
+    --thumb-radius: 0em;
+    --thumb-space: 0px;
+    --thumb-clr: var(--white);
     --thumb-clr-active: var(--highlight);
     --thumb-scale-y-active: .75;
 
@@ -199,14 +199,14 @@
     display: flex;
     align-items: center;
     gap: .5rem;
-    clip-path: polygon(0 45%, 100% 0, 100% 100%, 0 55%);
+    /* clip-path: polygon(0 45%, 100% 0, 100% 100%, 0 55%); */
 }
 
 .range-slider>[data-value] {
     font-size: 1.1rem;
     width: 4em;
     color: white;
-    opacity: .7;
+    opacity: 1;
 }
 
 .range-slider>input[type="range"] {

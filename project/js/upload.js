@@ -12,8 +12,10 @@ fileUpload.addEventListener('change', (e) => {
 
 function setPublic(elem) {
     if (document.querySelector('#public').checked) {
+        // document.querySelector('#public-label').style.backgroundColor = 'var(--highlight)'
         document.querySelector('#public-label').innerHTML = 'Yes'
     } else {
+        // document.querySelector('#public-label').style.backgroundColor = 'white'
         document.querySelector('#public-label').innerHTML = 'No'
     }
 }

@@ -68,3 +68,20 @@
 .last-login {
     font-size: 1em;
 }
+
+.logout {
+    font-family: inter-28-black;
+    font-size: 1.2em;
+    padding: .5em .8em;
+    color: var(--black);
+    background-color: var(--white);
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transition: all .2s ease-out;
+}
+
+.logout:hover {
+    color: var(--white);
+    background-color: var(--highlight);
+}

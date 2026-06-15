@@ -71,7 +71,7 @@ function initNav() {
                 <a href='./upload-sound.php' class='nav-btn'>
                     <img src='../images/icons/light/upload.svg' alt='upload button'>
                 </a>
-                <a href='./soundboard.php' class='nav-btn'>
+                <a href='./soundboard.php' class='nav-btn nav-btn-selected'>
                     <img src='../images/icons/light/soundboard.svg' alt='soundboard button'>
                 </a>
                 
@@ -126,9 +126,9 @@ function generateSoundboard() {
     $str = "<div class='soundboard' >";
 
     // Init page buttons for soundboard
-    // if (/*$countBtns > $maxBtns*/ true) {
-    //     $needsNewPage = true;
-    // }
+    if ($countBtns > $maxBtns) {
+        $needsNewPage = true;
+    }
 
     // Split buttons into seperate pages to scroll to
     for ($j = 0; $j < $pages; $j++) {

@@ -25,8 +25,10 @@
 
 /* Active state (when clicked) */
 .custom-file-upload:active {
-    transform: scale(0.975);
+    /* transform: scale(0.975); */
     /* Slight shrink effect */
+    background-color: var(--highlight);
+    color: var(--white);
 }
 
 /* Disabled state */

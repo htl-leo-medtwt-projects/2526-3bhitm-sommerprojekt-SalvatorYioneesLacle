@@ -37,7 +37,7 @@ function initPage() {
                                     </div>
                                 </div>
                                 <div id='form-public'>
-                                    <p>Public</p>
+                                    <p>Public:</p>
                                     <!--<input class='input' type='checkbox' name='public' id='public'>-->
 
                                     <label class='chkbox-container'>
@@ -70,7 +70,7 @@ function initNav() {
                 <a href='../index.php' class='nav-btn'>
                     <img src='../images/icons/light/Home.svg' alt='home button'>
                 </a>
-                <a href='./upload-sound.php' class='nav-btn'>
+                <a href='./upload-sound.php' class='nav-btn nav-btn-selected'>
                     <img src='../images/icons/light/upload.svg' alt='upload button'>
                 </a>
                 <a href='./soundboard.php' class='nav-btn'>
