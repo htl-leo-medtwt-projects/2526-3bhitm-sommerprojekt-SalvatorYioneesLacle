@@ -143,7 +143,6 @@ function generateSoundboard() {
             //         </div>\n";
         }
         $str .= "</div>";
-        $pages++;
     }
     $str .= '</div>';
 
