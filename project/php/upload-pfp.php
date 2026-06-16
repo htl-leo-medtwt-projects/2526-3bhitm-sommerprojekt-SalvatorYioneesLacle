@@ -52,7 +52,7 @@ if (isset($_POST['submit'])) {
 }
 
 // Allow certain file formats
-if ($fileType != "jpg" && $fileType != "png" && $fileType != "jpeg" && $fileType != "gif") {
+if ($fileType != "jpg" && $fileType != "png" && $fileType != "jpeg" && $fileType != "gif" && $fileType != "svg") {
     // echo "Sorry, only MP3 and WAV files are allowed.";
     $uploadOk = 0;
     // header('Location: ../pages/customiseUser.php');
