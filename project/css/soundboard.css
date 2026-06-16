@@ -41,6 +41,11 @@
 
 .soundboard-btn {
     position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    overflow: hidden;
 }
 
 .soundboard-icon {
@@ -62,6 +67,31 @@
 .soundboard-icon:active {
     background-color: var(--highlight);
     transform: scale(.90);
+}
+
+.soundboard-btn-txt {
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    font-family: inter-28, 'Arial', sans-serif;
+    color: var(--white);
+    font-size: .8em;
+    max-width: 8em;
+    max-height: 1em;
+    /* background-color: red; */
+    overflow-x: hidden;
+    overflow-y: hidden;
+    overflow-wrap: anywhere;
+    user-select: none;
+}
+
+.soundboard-btn-txt-name {
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    font-family: inter-28, 'Arial', sans-serif;
+    color: var(--white);
+    width: fit-content;
 }
 
 .sound-meter-box {

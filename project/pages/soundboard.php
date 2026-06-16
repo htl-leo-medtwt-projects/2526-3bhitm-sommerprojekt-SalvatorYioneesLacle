@@ -7,10 +7,12 @@ require_once '../php/userDataVariables.php';
 
 $sounds;
 $soundPath;
+$userOfSound;
+$soundName;
 $needsNewPage = false;
 
 function getAllSounds() {
-    global $conn, $sounds, $soundPath, $id;
+    global $conn, $sounds, $soundPath, $soundName, $userOfSound, $id;
     // Get all sounds where public
     $stmt = $conn->prepare(
         "SELECT * FROM sounds where public = 1 or user_id = ?"
@@ -27,12 +29,46 @@ function getAllSounds() {
     if (isset($_SESSION) && isset($_SESSION["sounds"])) {
         for ($i = 0; $i < count($_SESSION["sounds"]); $i++) {
             if (isset($_SESSION["sounds"][$i])) {
+                $soundName[$i] = substr($_SESSION["sounds"][$i][1], 0, 12);
                 $soundPath[$i] = $_SESSION["sounds"][$i][3];
+                $userOfSound[$i] = $_SESSION["sounds"][$i][4];
             }
         }
     }
 }
 getAllSounds();
+
+function getAllUsers() {
+    global $conn, $sounds, $soundPath, $id;
+    // Get all users
+    $stmt = $conn->query("SELECT username FROM users where user_deleted = 0");
+
+    if ($_res = $stmt) {
+        $allUsers = $stmt->fetch_all();
+        $_SESSION["allUsers"] = $allUsers;
+    }
+}
+getAllUsers();
+
+
+function getUserById($userId) {
+    global $conn, $id;
+    // Get user by id
+    $stmt = $conn->prepare(
+        "SELECT username FROM users where id = ?"
+    );
+    $stmt->bind_param("i", $userId);
+    $stmt->execute();
+    $res = $stmt->get_result();
+
+    if ($res->num_rows == 1) {
+        return $res->fetch_assoc()['username'];
+        // $_SESSION["allUsers"] = $allUsers;
+    }
+
+    return "User not found";
+}
+
 
 function initPage() {
     global $needsNewPage;
@@ -116,7 +152,7 @@ function initUserSignedIn() {
 }
 
 function generateSoundboard() {
-    global $soundPath, $needsNewPage;
+    global $soundPath, $userOfSound, $soundName, $needsNewPage;
 
     // Max 50 buttons per page
     $maxBtns = 50;
@@ -133,9 +169,11 @@ function generateSoundboard() {
     // Split buttons into seperate pages to scroll to
     for ($j = 0; $j < $pages; $j++) {
         $str .= "<div class='soundboard-pages' id='page-$j'>";
-        for ($i = 0; $i < min($countBtns - $maxBtns * $j, $maxBtns); $i++) {  
+        for ($i = 0; $i < min($countBtns - $maxBtns * $j, $maxBtns); $i++) {
+            $owner = getUserById($userOfSound[$i]);
             $str .= "<div class='soundboard-btn'>
                         <img class='soundboard-icon' src='../images/soundboard/soundboard_button_alpha_v5.svg' alt='soundboard button $i' onmousedown=\"playSound('$soundPath[$i]', '$i')\" onmouseup=\"dimBtn('$i')\">
+                        <div class='soundboard-btn-txt'><div class='soundboard-btn-txt-name'>$soundName[$i]</div>, $owner</div>
                     </div>\n";
 
             // $str .= "<div class='soundboard-btn'>
