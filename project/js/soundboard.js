@@ -93,10 +93,6 @@ function updateSoundMeterValue(sound, id) {
 
         // Prevent sudden value assigment to -60
         if (prevRms - rms != 0) {
-            // value = rms * 100 - 60;
-            // console.log(prevRms);
-            // console.log(rms);
-
             // Smoothen sound meter values
             prt = (rms - prevRms) / 16;
             for (let j = 0; j < 16; j++) {

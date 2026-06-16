@@ -74,8 +74,6 @@ if ($uploadOk == 0) {
 } else {
     // 1. Upload file
     if (move_uploaded_file($_FILES['fileToUpload']['tmp_name'], $target_file)) {
-        // echo "The file " . basename($_FILES['fileToUpload']['name']) . " has been uploaded.";
-
         // 2. Rename file
         rename($target_file, $target_dir . $file_name . ".$fileType");
         $target_file = $target_dir . $file_name . ".$fileType";

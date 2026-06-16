@@ -82,7 +82,8 @@ if ($uploadOk == 0) {
         $tempPfp = $res->fetch_assoc()["profile_picture"];
 
         // Delete old pfp
-        if ($res->num_rows === 1 && str_contains("../" . $tempPfp, "../" . $target_dir) && file_exists("../" . $tempPfp)) {
+        if ($res->num_rows === 1 && str_contains("../" . $tempPfp, "../" . $target_dir)
+             && file_exists("../" . $tempPfp)) {
             unlink("../" . $tempPfp);
         }
 
