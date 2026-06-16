@@ -29,7 +29,7 @@ function getAllSounds() {
     if (isset($_SESSION) && isset($_SESSION["sounds"])) {
         for ($i = 0; $i < count($_SESSION["sounds"]); $i++) {
             if (isset($_SESSION["sounds"][$i])) {
-                $soundName[$i] = $_SESSION["sounds"][$i][2];
+                $soundName[$i] = $_SESSION["sounds"][$i][1];
                 $soundPath[$i] = $_SESSION["sounds"][$i][3];
                 $userOfSound[$i] = $_SESSION["sounds"][$i][4];
             }
@@ -173,7 +173,8 @@ function generateSoundboard() {
             $owner = getUserById($userOfSound[$i]);
             $str .= "<div class='soundboard-btn'>
                         <img class='soundboard-icon' src='../images/soundboard/soundboard_button_alpha_v5.svg' alt='soundboard button $i' onmousedown=\"playSound('$soundPath[$i]', '$i')\" onmouseup=\"dimBtn('$i')\">
-                        <div class='soundboard-btn-txt'><div class='soundboard-btn-txt-name'>$soundName[$i]</div>, $owner</div>
+                        <div class='soundboard-btn-txt-name'>$soundName[$i]</div>
+                        <div class='soundboard-btn-txt'>$owner</div>
                     </div>\n";
 
             // $str .= "<div class='soundboard-btn'>

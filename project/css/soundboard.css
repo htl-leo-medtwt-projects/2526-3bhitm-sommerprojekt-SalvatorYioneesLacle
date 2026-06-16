@@ -75,6 +75,7 @@
     align-items: start;
     font-family: inter-28, 'Arial', sans-serif;
     color: var(--white);
+    width: fit-content;
     font-size: .8em;
     max-width: 8em;
     max-height: 1em;
@@ -88,10 +89,14 @@
 .soundboard-btn-txt-name {
     display: flex;
     justify-content: center;
-    align-items: start;
+    align-items: center;
+    text-align: center;
     font-family: inter-28, 'Arial', sans-serif;
     color: var(--white);
     width: fit-content;
+    font-size: .7em;
+    max-width: 8em;
+    height: 2.5em;
 }
 
 .sound-meter-box {
