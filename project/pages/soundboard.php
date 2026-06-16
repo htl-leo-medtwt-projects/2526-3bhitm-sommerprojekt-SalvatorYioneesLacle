@@ -29,7 +29,7 @@ function getAllSounds() {
     if (isset($_SESSION) && isset($_SESSION["sounds"])) {
         for ($i = 0; $i < count($_SESSION["sounds"]); $i++) {
             if (isset($_SESSION["sounds"][$i])) {
-                $soundName[$i] = substr($_SESSION["sounds"][$i][1], 0, 12);
+                $soundName[$i] = $_SESSION["sounds"][$i][2];
                 $soundPath[$i] = $_SESSION["sounds"][$i][3];
                 $userOfSound[$i] = $_SESSION["sounds"][$i][4];
             }
